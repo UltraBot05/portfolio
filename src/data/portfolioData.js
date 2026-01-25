@@ -8,7 +8,7 @@ export const portfolioData = {
   <img src="/assets/profile.jpg" alt="Abhigyan" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--blue); flex-shrink: 0;" />
   <div style="border: 2px solid var(--blue); padding: 15px 20px; display: inline-block;">
     <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 5px;">ABHIGYAN DUTTA</div>
-    <div style="color: var(--blue);">Systems & AI Dev</div>
+    <div style="color: var(--blue);">Systems & Automation Dev</div>
   </div>
 </div>
 
@@ -39,7 +39,7 @@ I believe in:
   • Learning by doing
 
 Currently: AI integration, full-stack dev, and making tech 
-accessible through docs.
+accessible through documentation.
 
 Fun fact: This portfolio is AI-powered. Try asking questions! 🚀
 

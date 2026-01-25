@@ -11,18 +11,16 @@
   ],
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/orchestrator",
-      "dest": "/api/orchestrator.js"
+      "source": "/api/orchestrator",
+      "destination": "/api/orchestrator.js"
     },
     {
-      "src": "/api/health",
-      "dest": "/api/orchestrator.js"
+      "source": "/api/health",
+      "destination": "/api/orchestrator.js"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     }
   ]
 }

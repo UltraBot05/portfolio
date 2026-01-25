@@ -80,73 +80,64 @@ Theme Colors (click to copy):
 `,
 
   skills: `
-┌─────────────────────────────────────────────────────────────────┐
-│                    ▓ CORE STRENGTHS                             │
-│                    SYSTEMS & SCRIPTING                          │
-└─────────────────────────────────────────────────────────────────┘
+>> SYSTEMS & SCRIPTING <<
+─────────────────────────
 
-  • Python                    [PRIMARY LANGUAGE]
-    └─ My go-to for scripting, automation, and data handling
-  
-  • Bash Scripting            [AUTOMATION]
-    └─ Writing clean, automated scripts for system tasks
-  
-  • Linux System Admin        [DEEP HANDS-ON EXPERIENCE]
-    ├─ Distro-hopping: Arch, EndeavourOS, Mint
-    ├─ Kernel-level troubleshooting & system recovery
-    └─ WM/DE Config: KDE Plasma, Hyprland, X11, Wayland
-  
-  • Server Hosting            [SELF-HOSTED]
-    └─ Deploying & managing servers (Minecraft, VMs)
-  
-  • Technical Documentation   [HIGH-QUALITY DOCS]
-    └─ Clear, comprehensive documentation that makes sense
+[ LINUX SYSTEM ADMIN ]
+  • Distro-Hopping: Arch, EndeavourOS, Mint, Debian
+  • Desktop Environments: KDE Plasma, Hyprland, X11, Wayland
+  • Kernel-level troubleshooting & system recovery
+  • Networking: ZeroTier, SSH Hardening, DNS/Pi-hole
 
+[ AUTOMATION & SCRIPTING ]
+  • Python (Primary Language for scripting & automation)
+  • Bash Scripting (System tasks & cron jobs)
+  • Systemd (Service management & auto-starts)
 
-┌─────────────────────────────────────────────────────────────────┐
-│                    ▓ HIGH-IMPACT EXPERIENCE                     │
-│                    WEB & AI                                     │
-└─────────────────────────────────────────────────────────────────┘
+>> WEB & CLOUD ARCHITECTURE <<
+──────────────────────────────
 
-  • Full-Stack Architecture   [MERN STACK]
-    └─ React, Node.js, Express, MongoDB, JWT
-  
-  • GenAI Concepts            [THEORETICAL KNOWLEDGE]
-    ├─ RAG (Retrieval-Augmented Generation)
-    ├─ Agentic AI & LLM Orchestration
-    └─ Agent architecture with tools
-  
-  • AI-Assisted Development   [PRACTICAL EXPERIENCE]
-    └─ Successfully directed AI to build fra-atlas-mvp
-  
-  • Cloud & Deployment        [HANDS-ON]
-    ├─ Google Cloud (Vertex AI, Agent Builder)
-    └─ Vercel deployment
+[ FULL-STACK DEVELOPMENT ]
+  • React.js (Frontend Architecture)
+  • Node.js & Express (Backend Logic)
+  • Firebase & SQL (Database Management)
+  • Vercel (CI/CD & Deployment)
 
+[ CLOUD & DEVOPS ]
+  • Google Cloud Platform (Vertex AI, Cloud Run)
+  • Docker (Containerization Basics)
+  • Server Hosting (Minecraft, Self-hosted VMs)
 
-┌─────────────────────────────────────────────────────────────────┐
-│                    ▓ LEADERSHIP & COMMUNITY                     │
-└─────────────────────────────────────────────────────────────────┘
+>> AI & FUTURE TECH <<
+──────────────────────
 
-  • Community Management      [DISCORD]
-    └─ Building & managing moderately-sized servers
-  
-  • Bot Development           [NODE.JS]
-    └─ Discord.js automation bots
+[ GEN-AI CONCEPTS ]
+  • RAG (Retrieval-Augmented Generation)
+  • Agentic AI & LLM Orchestration
+  • AI-Assisted Dev: Directed AI to build "fra-atlas-mvp"
 
+[ TOOLS ]
+  • Playwright (Headless Browser Automation)
+  • Google Gemini API & Vertex AI Agents
 
-┌─────────────────────────────────────────────────────────────────┐
-│                    ▓ LANGUAGES                                  │
-└─────────────────────────────────────────────────────────────────┘
+>> LEADERSHIP & COMMUNITY <<
+────────────────────────────
 
-  • English                   [FULL WORKING PROFICIENCY]
-    └─ Fluent in speaking, reading, and writing
-  
-  • Hindi                     [MEDIUM PROFICIENCY]
-    └─ Comfortable with everyday conversation
-  
-  • Bengali                   [LIMITED PROFICIENCY]
-    └─ Basic understanding and communication
+[ COMMUNITY MANAGEMENT ]
+  • Building & managing Discord communities
+  • Discord.js Bot Development (Automation bots)
+
+[ SOFT SKILLS ]
+  • Technical Documentation (High-quality docs)
+  • Mentorship (Vegavath & Hackathon Leadership)
+  • Problem Solving (The "Break it to fix it" mindset)
+
+>> SPOKEN LANGUAGES <<
+──────────────────────
+
+  • English (Full Working Proficiency)
+  • Hindi (Full Working Proficiency)
+  • Bengali (Bilingual or Native Proficiency)
 `,
 
   projects: [
@@ -323,12 +314,11 @@ Status: Active in multiple servers
   ],
 
   contact: `
-┌─────────────────────────────────────────────────────────────────┐
-│                         GET IN TOUCH                            │
-└─────────────────────────────────────────────────────────────────┘
+>> GET IN TOUCH <<
+──────────────────
 
 I'm always open to discussing new opportunities, collaborations,
-or just chatting about tech!
+or just chatting about systems, Linux, or AI!
 
   📧 Email:       dutta13abhigyan@gmail.com
   🔗 LinkedIn:    linkedin.com/in/adutta05
@@ -337,9 +327,6 @@ or just chatting about tech!
 
 Feel free to reach out through any of these channels.
 I typically respond within 24 hours.
-
-Thanks for exploring my interactive portfolio! 
-Looking forward to connecting with you. 😊
 `,
 
   socials: {
@@ -350,25 +337,26 @@ Looking forward to connecting with you. 😊
   },
 
   help: `
-=== AVAILABLE COMMANDS ===
+>> AVAILABLE COMMANDS <<
+────────────────────────
 
-  about        Show information about me
-  skills       Display my technical skills
-  projects     List all my projects
+  about        Show information about me (System Specs)
+  skills       Display my technical toolkit
+  projects     List my engineering projects
   contact      Get my contact information
   clear        Clear the terminal screen
   help         Show this help message
-  exit         Try to exit the terminal
 
-=== AI ASSISTANT MODE ===
+>> AI ASSISTANT MODE <<
+───────────────────────
 
 You can also just type natural language questions!
 
 Examples:
-  • "What are your strongest skills?"
-  • "Tell me about your projects"
+  • "What experience do you have with Linux?"
+  • "Tell me about your automation projects."
+  • "Do you know React?"
   • "How can I contact you?"
-  • "What experience do you have with AI?"
 
 The AI assistant will understand your intent and show you the 
 relevant information.

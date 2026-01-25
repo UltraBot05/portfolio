@@ -33,8 +33,9 @@ const corsOptions = {
     // For development, allow localhost
     const allowedOrigins = [
       'http://localhost:3000',
+      'http://localhost:5000',
       'http://localhost:5173',
-      'https://yourdomain.vercel.app', // Replace with your actual domain
+      'https://abhigyan-site.vercel.app',
       process.env.FRONTEND_URL
     ].filter(Boolean);
     

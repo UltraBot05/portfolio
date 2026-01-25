@@ -512,4 +512,5 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
+// Vercel serverless function handler
 export default app;

@@ -1,0 +1,67 @@
+.matrix-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--crust);
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.matrix-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.matrix-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10000;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.matrix-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 32px;
+  color: var(--yellow);
+  text-shadow: 0 0 20px var(--yellow);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.matrix-subtext {
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  color: var(--sapphire);
+  text-shadow: 0 0 10px var(--sapphire);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .matrix-text {
+    font-size: 24px;
+  }
+
+  .matrix-subtext {
+    font-size: 14px;
+  }
+}

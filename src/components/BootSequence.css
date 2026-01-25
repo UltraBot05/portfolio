@@ -1,0 +1,181 @@
+.boot-sequence {
+  width: 100vw;
+  height: 100vh;
+  background: var(--crust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.boot-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 60px;
+  align-items: center;
+}
+
+.boot-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.boot-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.boot-line {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.8;
+  display: flex;
+  gap: 12px;
+  animation: fadeIn 0.3s ease-out;
+  margin-bottom: 4px;
+}
+
+.boot-status {
+  color: var(--green);
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.boot-text {
+  color: var(--subtext1);
+}
+
+.boot-line.success .boot-status {
+  color: var(--green);
+}
+
+.boot-line.success .boot-text {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.boot-logo {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-emoji {
+  font-size: 120px;
+  animation: emojiPulse 2s ease-in-out infinite;
+}
+
+@keyframes emojiPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(137, 180, 250, 0.3));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px rgba(137, 180, 250, 0.6));
+  }
+}
+
+.logo-subtext {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--subtext0);
+  text-align: center;
+  padding: 0 20px;
+}
+
+.progress-container {
+  width: 300px;
+  height: 6px;
+  background: var(--surface0);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--surface2);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--sapphire), var(--sky));
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px var(--blue);
+}
+
+.progress-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .boot-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .boot-left {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .boot-sequence {
+    padding: 20px;
+  }
+
+  .boot-line {
+    font-size: 12px;
+  }
+
+  .boot-status {
+    min-width: 50px;
+    font-size: 11px;
+  }
+
+  .boot-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .progress-container {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .boot-line {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .boot-status {
+    min-width: 45px;
+  }
+
+  .boot-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .logo-subtext {
+    font-size: 8px;
+  }
+
+  .progress-container {
+    width: 200px;
+  }
+}

@@ -1,0 +1,90 @@
+.command-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--surface0);
+  padding-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.prompt-user {
+  color: var(--green);
+}
+
+.prompt-separator {
+  color: var(--subtext0);
+}
+
+.prompt-path {
+  color: var(--blue);
+}
+
+.prompt-symbol {
+  color: var(--mauve);
+  margin-left: 2px;
+}
+
+.command-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'Fira Code', monospace;
+  font-size: inherit; /* Inherit from parent terminal fontSize */
+  padding: 4px;
+  caret-color: var(--green);
+}
+
+.command-input::selection {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* Blinking cursor effect */
+.command-input:focus {
+  animation: none;
+}
+
+@media (max-width: 768px) {
+  .command-line {
+    gap: 6px;
+    padding-top: 12px;
+  }
+
+  .prompt {
+    font-size: inherit; /* Let parent control size */
+  }
+
+  .command-input {
+    font-size: inherit; /* Let parent control size */
+  }
+}
+
+@media (max-width: 480px) {
+  .prompt {
+    font-size: inherit; /* Let parent control size */
+  }
+
+  .command-input {
+    font-size: max(inherit, 16px); /* At least 16px to prevent iOS zoom */
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .command-input {
+    font-size: max(inherit, 16px); /* At least 16px to prevent iOS zoom */
+    padding: 6px;
+  }
+}

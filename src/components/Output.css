@@ -1,0 +1,160 @@
+.output {
+  width: 100%;
+}
+
+.output-entry {
+  margin-bottom: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.command-echo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.command-echo .prompt-user {
+  color: var(--green);
+}
+
+.command-echo .prompt-separator {
+  color: var(--subtext0);
+}
+
+.command-echo .prompt-path {
+  color: var(--blue);
+}
+
+.command-echo .prompt-symbol {
+  color: var(--mauve);
+  margin-left: 2px;
+}
+
+.command-text {
+  color: var(--text);
+  margin-left: 8px;
+}
+
+.output-text {
+  color: var(--text);
+  line-height: 1.6;
+  padding-left: 4px;
+}
+
+.system-text {
+  color: var(--peach); /* Orange color for AI responses */
+  line-height: 1.6;
+  padding-left: 4px;
+}
+
+.output-text pre {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  font-size: inherit; /* Inherit from parent terminal fontSize */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: var(--sapphire); /* Blue color for command outputs */
+  line-height: 1.7;
+}
+
+.system-text pre {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  font-size: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: var(--peach); /* Orange color for AI responses */
+  line-height: 1.7;
+}
+
+/* Special styling for different output types */
+.output-text pre:has(> [class*="box"]) {
+  color: var(--text);
+}
+
+/* Highlight special characters */
+.output-text pre,
+.system-text pre {
+  /* Box drawing characters */
+  & :is(│, ─, ┌, └, ┐, ┘, ├, ┤, ┬, ┴, ┼) {
+    color: var(--surface2);
+  }
+}
+
+/* Error styling */
+.output-entry.error .output-text pre {
+  color: var(--red);
+}
+
+/* Success styling */
+.output-entry.success .output-text pre {
+  color: var(--green);
+}
+
+/* Links in output */
+.output-text a,
+.system-text a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.output-text a:hover,
+.system-text a:hover {
+  color: var(--sapphire);
+}
+
+/* Color palette styling */
+.color-palette {
+  display: inline-flex;
+  gap: 8px;
+  margin-left: 4px;
+}
+
+.color-dot {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.color-dot:hover {
+  transform: scale(1.3);
+  border-color: var(--text);
+  box-shadow: 0 0 10px currentColor;
+}
+
+.color-dot:active {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .output-text pre,
+  .system-text pre {
+    font-size: inherit; /* Let parent control size */
+  }
+
+  .command-echo {
+    font-size: inherit; /* Let parent control size */
+  }
+}
+
+@media (max-width: 480px) {
+  .output-text pre,
+  .system-text pre {
+    font-size: inherit; /* Let parent control size */
+    line-height: 1.6;
+  }
+
+  .command-echo {
+    font-size: inherit; /* Let parent control size */
+  }
+
+  .output-entry {
+    margin-bottom: 12px;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/orchestrator",
+      "dest": "/api/orchestrator.js"
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/orchestrator.js"
+    }
+  ]
+}

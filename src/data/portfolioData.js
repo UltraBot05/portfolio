@@ -150,6 +150,93 @@ Theme Colors (click to copy):
 `,
 
   projects: [
+    // --- NEW RESUME PROJECTS (Top Priority) ---
+    {
+      name: "pesu-content-automation",
+      category: "Python / Playwright / PyInstaller",
+      description: `
+A robust automation suite designed to streamline the retrieval and 
+archival of university course materials.
+
+Tech Stack:
+  • Python (Core Logic)
+  • Playwright (Headless Browser Automation)
+  • PyInstaller (Cross-platform Packaging)
+  • Regex (Intelligent Parsing)
+
+Role & Learning:
+  • Architected headless browser navigation to handle portal instability
+  • Built file pipelines processing 100+ files error-free
+  • Packaged for Windows/Linux/macOS for non-technical peers
+  • Reduced manual archival time by ~95%
+
+Status: Deployed (v1.0)
+`,
+      github: "#", // Hidden until 100% complete
+      highlights: [
+        "95% Manual Time Reduction",
+        "Headless Browser Automation",
+        "Cross-Platform Executables"
+      ]
+    },
+    {
+      name: "network-media-controller",
+      category: "Linux / systemd / Networking",
+      description: `
+A self-hosted infrastructure project focused on network optimization, 
+ad-blocking, and hardware-accelerated media streaming.
+
+Tech Stack:
+  • Linux (Arch/Debian) & systemd
+  • Intel QuickSync (Hardware Acceleration)
+  • ZeroTier (Encrypted Tunneling)
+  • DNS Sinkhole (Pi-hole)
+
+Role & Learning:
+  • Configured Intel Iris Xe iGPU for transcoding (40% less CPU load)
+  • Hardened security via SSH Keys and ZeroTier tunneling
+  • Eliminated 100% of public port exposure
+  • Reduced network bandwidth usage by 15%
+
+Status: Active / Self-Hosted
+`,
+      github: "#", // Hidden until 100% complete
+      highlights: [
+        "Hardware Acceleration (Iris Xe)",
+        "ZeroTier Security",
+        "40% CPU Load Reduction"
+      ]
+    },
+    {
+      name: "semwork-planner",
+      category: "React / Firebase / AI",
+      description: `
+An intelligent academic planner that parses raw syllabus text into 
+interactive, NoSQL-compatible tracking checklists.
+
+Tech Stack:
+  • React.js (Frontend)
+  • Firebase (NoSQL Database & Auth)
+  • Google Gemini API (AI Integration)
+  • JSON (Data Structure)
+
+Role & Learning:
+  • Designed NoSQL schema for flexible course structures
+  • Formulated idempotent sync protocols (Zero Data Loss)
+  • Integrated AI Study Assistant with sub-200ms latency
+  • Optimized for reducing manual tracking time by 50%
+
+Status: Beta / User Testing
+`,
+      github: "#", // Hidden until 100% complete
+      highlights: [
+        "AI Study Assistant",
+        "NoSQL Syllabus Parsing",
+        "Idempotent Sync Protocol"
+      ]
+    },
+
+    // --- EXISTING PORTFOLIO PROJECTS (Preserved) ---
     {
       name: "active-deception-lab",
       category: "Cybersecurity / Linux / Python",
@@ -175,34 +262,6 @@ Status: Active Development
         "Custom honeypot implementation",
         "Real-time threat monitoring",
         "Automated response systems"
-      ]
-    },
-    {
-      name: "sih-fra-atlas",
-      category: "Full-Stack / AI / MERN",
-      description: `
-A full-stack MERN application built for Smart India Hackathon, 
-showcasing modern web development and AI-assisted development practices.
-
-Tech Stack:
-  • Frontend: React.js with Tailwind CSS
-  • Backend: Node.js, Express.js
-  • Database: MongoDB
-  • Auth: JWT-based authentication
-
-Role & Learning:
-  • Led the project architecture and design
-  • Successfully directed AI tools to build features
-  • Implemented custom UI/UX improvements
-  • Managed full development lifecycle
-
-Status: Completed (SIH Submission)
-`,
-      github: "https://github.com/UltraBot05/sih-fra-atlas",
-      highlights: [
-        "AI-assisted development workflow",
-        "Custom authentication system",
-        "Responsive modern UI"
       ]
     },
     {

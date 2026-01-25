@@ -16,11 +16,11 @@
   "rewrites": [
     {
       "source": "/api/orchestrator",
-      "destination": "/api/orchestrator.js"
+      "destination": "/api/orchestrator-handler.js"
     },
     {
       "source": "/api/health",
-      "destination": "/api/orchestrator.js"
+      "destination": "/api/orchestrator-handler.js"
     },
     {
       "source": "/api/:path*",

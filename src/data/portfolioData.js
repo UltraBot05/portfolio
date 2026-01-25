@@ -350,22 +350,17 @@ Looking forward to connecting with you. 😊
   },
 
   help: `
-┌─────────────────────────────────────────────────────────────────┐
-│                    AVAILABLE COMMANDS                           │
-└─────────────────────────────────────────────────────────────────┘
+=== AVAILABLE COMMANDS ===
 
-  about             Show information about me
-  skills            Display my technical skills and expertise
-  projects          List all my projects
-  projects view <name>    View detailed info about a specific project
-  contact           Get my contact information
-  clear             Clear the terminal screen
-  help              Show this help message
-  exit              Try to exit (spoiler: you can't escape!)
+  about        Show information about me
+  skills       Display my technical skills
+  projects     List all my projects
+  contact      Get my contact information
+  clear        Clear the terminal screen
+  help         Show this help message
+  exit         Try to exit the terminal
 
-┌─────────────────────────────────────────────────────────────────┐
-│                    AI ASSISTANT MODE                            │
-└─────────────────────────────────────────────────────────────────┘
+=== AI ASSISTANT MODE ===
 
 You can also just type natural language questions!
 

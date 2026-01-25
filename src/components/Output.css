@@ -59,6 +59,13 @@
   line-height: 1.7;
 }
 
+@media (max-width: 600px) {
+  .output-text pre {
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+}
+
 .system-text pre {
   margin: 0;
   font-family: 'Fira Code', monospace;

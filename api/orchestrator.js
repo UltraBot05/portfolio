@@ -489,6 +489,19 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Root endpoint for browser check
+app.get('/', (req, res) => {
+  res.send('AI Orchestrator API is running. Use POST /api/orchestrator to interact.');
+});
+
+// Friendly message for GET on the API route
+app.get('/api/orchestrator', (req, res) => {
+  res.status(405).json({ 
+    error: 'Method Not Allowed',
+    message: 'This endpoint only accepts POST requests with a JSON body containing an "input" field.' 
+  });
+});
+
 // Start server (only if not in Vercel serverless environment)
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {

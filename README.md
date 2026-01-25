@@ -2,8 +2,6 @@
 
 A unique, interactive terminal-based portfolio website that showcases skills through an actual working Linux-style terminal interface powered by AI.
 
-![Portfolio Preview](preview.png)
-
 ## ✨ Features
 
 - **🖥️ Authentic Terminal Experience**: Boot sequence, command line interface, and real terminal aesthetics

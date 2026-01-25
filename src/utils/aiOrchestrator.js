@@ -7,7 +7,7 @@ export async function queryAIOrchestrator(input) {
     // In production (Vercel), use serverless function
     const apiUrl = import.meta.env.PROD 
       ? '/api/orchestrator'
-      : 'http://localhost:3001/api/orchestrator';
+      : '/api/orchestrator';
 
     const response = await axios.post(apiUrl, {
       input: input

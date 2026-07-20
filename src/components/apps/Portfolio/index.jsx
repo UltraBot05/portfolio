@@ -209,92 +209,113 @@ export default function Portfolio() {
           {...REVEAL}
           sx={{ pt: { xs: 6, sm: 8 }, pb: 6 }}
         >
-          {/* Subtle "terminal handle" above the name */}
-          <Typography
-            sx={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.78rem',
-              color: 'primary.main',
-              mb: 1.5,
-              letterSpacing: '0.05em',
-            }}
-          >
-            ~/b3astos $
-          </Typography>
+          <Stack direction={{ xs: 'column-reverse', sm: 'row' }} spacing={4} alignItems={{ xs: 'flex-start', sm: 'center' }} justifyContent="space-between">
+            <Box sx={{ flex: 1 }}>
+              {/* Subtle "terminal handle" above the name */}
+              <Typography
+                sx={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  color: 'primary.main',
+                  mb: 1.5,
+                  letterSpacing: '0.05em',
+                }}
+              >
+                ~/b3astos $
+              </Typography>
 
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: '2.4rem', sm: '3.2rem' },
-              fontWeight: 800,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.1,
-              mb: 0.75,
-            }}
-          >
-            Abhigyan Dutta
-          </Typography>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: { xs: '2.4rem', sm: '3.2rem' },
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.1,
+                  mb: 0.75,
+                }}
+              >
+                Abhigyan Dutta
+              </Typography>
 
-          <Typography
-            sx={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: { xs: '0.82rem', sm: '0.95rem' },
-              color: 'text.secondary',
-              mb: 1,
-              letterSpacing: '0.02em',
-            }}
-          >
-            systems engineer · security researcher · ctf competitor
-          </Typography>
+              <Typography
+                sx={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: { xs: '0.82rem', sm: '0.95rem' },
+                  color: 'text.secondary',
+                  mb: 1,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                systems engineer · security researcher · ctf competitor
+              </Typography>
 
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{ maxWidth: 580, mb: 3, lineHeight: 1.7, fontSize: { xs: '0.95rem', sm: '1rem' } }}
-          >
-            I build things close to the metal. Kernel space, C, and broken binaries.
-          </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{ maxWidth: 580, mb: 3, lineHeight: 1.7, fontSize: { xs: '0.95rem', sm: '1rem' } }}
+              >
+                I build things close to the metal. Kernel space, C, and broken binaries.
+              </Typography>
 
-          <Stack direction="row" spacing={1.5} useFlexGap sx={{ flexWrap: 'wrap' }}>
-            <Button
-              variant="contained"
-              startIcon={<DownloadRounded />}
-              onClick={() => {
-                const a = getApp('resume');
-                open('resume', { title: a.label, defaultSize: a.defaultSize });
+              <Stack direction="row" spacing={1.5} useFlexGap sx={{ flexWrap: 'wrap' }}>
+                <Button
+                  variant="contained"
+                  startIcon={<DownloadRounded />}
+                  onClick={() => {
+                    const a = getApp('resume');
+                    open('resume', { title: a.label, defaultSize: a.defaultSize });
+                  }}
+                  sx={{ borderRadius: '12px', px: 2.5, fontWeight: 600 }}
+                >
+                  Resume
+                </Button>
+                <Button
+                  variant="outlined"
+                  startIcon={<GitHubIcon />}
+                  href={personal.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ borderRadius: '12px', px: 2.5 }}
+                >
+                  GitHub
+                </Button>
+                <Button
+                  variant="outlined"
+                  startIcon={<LinkedInIcon />}
+                  href={personal.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ borderRadius: '12px', px: 2.5 }}
+                >
+                  LinkedIn
+                </Button>
+                <Button
+                  variant="text"
+                  startIcon={<EmailRounded />}
+                  href={`mailto:${personal.email}`}
+                  sx={{ borderRadius: '12px', px: 1.5 }}
+                >
+                  Contact
+                </Button>
+              </Stack>
+            </Box>
+
+            {/* Profile Image */}
+            <Box
+              component="img"
+              src="/assets/profile.jpg"
+              alt="Abhigyan Dutta"
+              sx={{
+                width: { xs: 140, sm: 180, md: 220 },
+                height: { xs: 140, sm: 180, md: 220 },
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: 4,
+                borderColor: 'background.paper',
+                boxShadow: (theme) => `0 8px 24px -8px ${theme.vars?.palette.primary.main || theme.palette.primary.main}`,
+                flexShrink: 0,
               }}
-              sx={{ borderRadius: '12px', px: 2.5, fontWeight: 600 }}
-            >
-              Resume
-            </Button>
-            <Button
-              variant="outlined"
-              startIcon={<GitHubIcon />}
-              href={personal.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ borderRadius: '12px', px: 2.5 }}
-            >
-              GitHub
-            </Button>
-            <Button
-              variant="outlined"
-              startIcon={<LinkedInIcon />}
-              href={personal.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ borderRadius: '12px', px: 2.5 }}
-            >
-              LinkedIn
-            </Button>
-            <Button
-              variant="text"
-              startIcon={<EmailRounded />}
-              href={`mailto:${personal.email}`}
-              sx={{ borderRadius: '12px', px: 1.5 }}
-            >
-              Contact
-            </Button>
+            />
           </Stack>
         </Box>
 

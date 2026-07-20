@@ -201,6 +201,24 @@ recent:      binary exploitation, heap grooming, ROP chains`
     }),
 
     neofetch: () => ({ isCommand: true, output: portfolioData.about }),
+
+    // CTF flag 4 — triggered after the Konami code sets a sessionStorage key
+    konami: () => {
+      const earned = typeof sessionStorage !== 'undefined'
+        && sessionStorage.getItem('konami_unlocked') === 'true';
+      if (!earned) {
+        return { isCommand: true, output: 'konami: command not found\n(hint: there is a code...)' };
+      }
+      sessionStorage.setItem('ctf_konami_found', 'true');
+      return {
+        isCommand: true,
+        output: `
+↑ ↑ ↓ ↓ ← → ← → B A  ...confirmed
+
+FLAG{k0nami_1s_s3cr3t}
+🏴 classic.`
+      };
+    },
   };
 
   // uname -a
@@ -229,6 +247,47 @@ recent:      binary exploitation, heap grooming, ROP chains`
 daemon:x:1:1:suspicious_daemon:/usr/sbin:/usr/sbin/nologin
 b3ast:x:1000:1000:Abhigyan Dutta:/home/b3ast:/bin/zsh
 vegavath:x:1337:1337:motorsport:/home/vegavath:/bin/false`
+    };
+  }
+
+  // cat /etc/shadow — CTF flag 3: sudo make me a sandwich
+  if (command === 'cat /etc/shadow' || command === 'sudo cat /etc/shadow') {
+    sessionStorage.setItem('ctf_shadow_found', 'true');
+    return {
+      isCommand: true,
+      output: `Permission denied... or are we?
+
+root:$6$salt$hackers_gonna_hack:0:0:99999:7:::
+b3ast:$6$pepper$XOR_all_the_things:17000:0:99999:7:::
+# FLAG{sudo_make_me_a_sandwich}
+# (yes, we checked. no, you can't crack it.)`
+    };
+  }
+
+  // base64 -d — CTF flag 5: decode the hidden payload
+  if (command === 'base64 -d' || command === 'echo "flag" | base64 -d' || command.startsWith('base64')) {
+    sessionStorage.setItem('ctf_b64_found', 'true');
+    return {
+      isCommand: true,
+      // b3ast_base64_pwns == FLAG{bas364_goes_brrrr}
+      output: `Zm c9UH g9Qkx BT0dJ TlhS S==
+
+decoded: FLAG{bas364_goes_brrrr}
+
+(tip: the about command hides something. look at the last line.)`
+    };
+  }
+
+  // xxd --flag — CTF flag 2: hidden in hex dump
+  if (command === 'xxd --flag' || command === 'xxd -flag') {
+    sessionStorage.setItem('ctf_xxd_found', 'true');
+    return {
+      isCommand: true,
+      output: `00000080  46 4c 41 47 7b 68 33 78  5f 31 35 5f 6a 75 73 74  |FLAG{h3x_15_just|
+00000090  5f 62 34 73 33 5f 31 36  7d 00 00 00 00 00 00 00  |_b4s3_16}......|
+
+FLAG{h3x_15_just_b4s3_16}
+🏴 hex dump never lies.`
     };
   }
 

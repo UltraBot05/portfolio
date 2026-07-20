@@ -83,8 +83,17 @@ export default function FakePwn() {
     // Stage 2 - enumeration (hardcoded responses)
     const enumResponses = {
       ls: { t: '.hidden_creds  suspicious_daemon  readme.txt  .bash_history', c: 'line' },
+      'ls -la': { t: 'total 48\ndrwxr-xr-x  4 root root 4096 Jul 20 13:37 .\n-rwsr-sr-x  1 root root 8192 Jul 20 13:37 suspicious_daemon\n-rw-------  1 root root  128 Jul 20 13:37 .hidden_creds\n-rw-r--r--  1 root root   42 Jul 20 13:37 readme.txt\n-rw-------  1 root root  256 Jul 20 13:37 .bash_history\n-r--r--r--  1 root root    4 Jul 20 13:37 /proc/flag', c: 'line' },
       'cat .hidden_creds': { t: 'permission denied. try harder.', c: 'err' },
-      'cat readme.txt': { t: 'nothing to see here. or is there?', c: 'line' },
+      'cat readme.txt': { t: 'nothing to see here. or is there?\n\nhint: try ls -la, then check /proc', c: 'line' },
+      'cat /proc/flag': {
+        t: 'FLAG{m3m0ry_1s_jus7_arr4ys}\n🏴 process memory never forgets.',
+        c: 'win',
+      },
+      'cat /proc/self/maps': {
+        t: '7f3a1000-7f3a2000 r--p 00000000 08:01 1234  /lib/x86_64-linux-gnu/libc.so.6\n7f3a2000-7f3b0000 r-xp 00001000 08:01 1234  /lib/x86_64-linux-gnu/libc.so.6\n7ffd4e33-7ffd4e55 r-xp 00000000 00:00 0    [FLAG{m3m0ry_1s_jus7_arr4ys}]\n7ffd4e55-7ffd4e80 r--p 00000000 00:00 0    [vvar]\n7ffd4e80-7ffd4e82 r-xp 00000000 00:00 0    [vdso]\nffffffff-ffffffff r-xp 00000000 00:00 0    [vsyscall]\n\nfound it? FLAG{m3m0ry_1s_jus7_arr4ys}\n🏴 address space is a treasure map.',
+        c: 'win',
+      },
       'ps aux': { t: 'USER  PID   CMD\nroot  1     /sbin/init\nroot  1337  suspicious_daemon', c: 'line' },
       ps: { t: 'PID   CMD\n1     /sbin/init\n1337  suspicious_daemon', c: 'line' },
       'strings suspicious_daemon': { t: '\\x7fELF..@..H..t$..\\nXOR_KEY=0x42\\n..__libc_start_main..puts..', c: 'line' },

@@ -10,6 +10,7 @@ import SearchRounded from '@mui/icons-material/SearchRounded';
 import LightModeRounded from '@mui/icons-material/LightModeRounded';
 import DarkModeRounded from '@mui/icons-material/DarkModeRounded';
 import WifiRounded from '@mui/icons-material/WifiRounded';
+import WifiMenu from './WifiMenu';
 
 const pad = (n) => String(n).padStart(2, '0');
 
@@ -18,6 +19,7 @@ export default function StatusBar({ onLauncherClick }) {
   const { mode, systemMode, setMode } = useColorScheme();
   const [time, setTime] = useState(() => new Date());
   const [cpu, setCpu] = useState(12);
+  const [wifiAnchor, setWifiAnchor] = useState(null);
 
   useEffect(() => {
     const clock = setInterval(() => setTime(new Date()), 1000);
@@ -29,20 +31,21 @@ export default function StatusBar({ onLauncherClick }) {
   const ram = navigator.deviceMemory ? `${navigator.deviceMemory}G` : '16G';
 
   return (
-    <AppBar
-      position="fixed"
-      elevation={0}
-      color="transparent"
-      sx={{
-        height: 44,
-        justifyContent: 'center',
-        bgcolor: 'surface.low',
-        borderBottom: 1,
-        borderColor: 'divider',
-        backdropFilter: 'blur(8px)',
-        zIndex: (t) => t.zIndex.appBar + 10,
-      }}
-    >
+    <>
+      <AppBar
+        position="fixed"
+        elevation={0}
+        color="transparent"
+        sx={{
+          height: 44,
+          justifyContent: 'center',
+          bgcolor: 'surface.low',
+          borderBottom: 1,
+          borderColor: 'divider',
+          backdropFilter: 'blur(8px)',
+          zIndex: (t) => t.zIndex.appBar + 10,
+        }}
+      >
       <Toolbar variant="dense" sx={{ minHeight: 44, gap: 1.5, px: 2 }}>
         <Typography sx={{ fontFamily: 'var(--font-mono)', fontWeight: 600, fontSize: 14, color: 'primary.main', letterSpacing: '0.02em' }}>
           B3astOS
@@ -56,7 +59,11 @@ export default function StatusBar({ onLauncherClick }) {
         <Typography variant="caption" sx={{ fontFamily: 'var(--font-mono)', color: 'text.secondary', display: { xs: 'none', sm: 'block' } }}>
           RAM {ram}
         </Typography>
-        <WifiRounded sx={{ fontSize: 16, color: 'text.secondary', display: { xs: 'none', sm: 'block' } }} />
+        <Tooltip title="Wi-Fi" sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <IconButton size="small" onClick={(e) => setWifiAnchor(e.currentTarget)} aria-label="Wi-Fi networks">
+            <WifiRounded sx={{ fontSize: 16, color: 'text.secondary' }} />
+          </IconButton>
+        </Tooltip>
         <Typography variant="body2" sx={{ fontFamily: 'var(--font-mono)', color: 'text.primary', fontWeight: 500 }}>
           {pad(time.getHours())}:{pad(time.getMinutes())}
         </Typography>
@@ -73,6 +80,12 @@ export default function StatusBar({ onLauncherClick }) {
           </IconButton>
         </Tooltip>
       </Toolbar>
-    </AppBar>
+      </AppBar>
+      <WifiMenu
+        anchorEl={wifiAnchor}
+        open={Boolean(wifiAnchor)}
+        onClose={() => setWifiAnchor(null)}
+      />
+    </>
   );
 }

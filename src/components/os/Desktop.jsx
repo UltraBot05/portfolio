@@ -42,7 +42,8 @@ export default function Desktop() {
   };
 
   const onKonami = useCallback(() => {
-    setToast('Konami. Respect.');
+    setToast('Konami. Respect. (try: konami in terminal)');
+    sessionStorage.setItem('konami_unlocked', 'true');
     DESKTOP_ICONS.forEach(icon => open(icon.appId, { title: icon.label, defaultSize: icon.defaultSize }));
     setTimeout(() => {
       const { windows: ws, close } = useWindowStore.getState();

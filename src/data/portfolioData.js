@@ -1,368 +1,272 @@
-// Portfolio content data
+// Portfolio content data - B3astOS.
+// SOURCE OF TRUTH: Abhigyan's real resume (docs/Abhigyan_Resume_July26.pdf).
+// The structured objects feed the windowed apps; the pre-formatted strings
+// lower down keep the existing terminal commandHandler working.
+
 export const portfolioData = {
-  username: "Abhigyan",
-  version: "1.0.0",
-  
-  about: `
-<div style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap; margin-bottom: 25px;">
-  <img src="/assets/profile.jpg" alt="Abhigyan" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--blue); flex-shrink: 0;" />
-  <div style="border: 2px solid var(--blue); padding: 15px 20px; display: inline-block;">
-    <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 5px;">ABHIGYAN DUTTA</div>
-    <div style="color: var(--blue);">Systems & Automation Dev</div>
-  </div>
-</div>
-
-Abhigyan@portfolio
-──────────────────
-OS: PortfolioOS (React-based)
-Host: Vercel Cloud
-Kernel: Linux / Node.js
-Uptime: Always learning
-Shell: bash (web-based)
-Terminal: Custom React Terminal
-Theme: Catppuccin Mocha
-
-──────────────────
-Hey there! 👋
-
-I'm a systems enthusiast and AI-curious developer who doesn't 
-just use technology—I build, break, and fix it.
-
-My journey started with Linux system administration, where I 
-learned that the best way to understand something is to 
-customize it until it breaks, then fix it.
-
-I believe in:
-  • Building real solutions
-  • Writing great docs
-  • Automating the boring stuff
-  • Learning by doing
-
-Currently: AI integration, full-stack dev, and making tech 
-accessible through documentation.
-
-Fun fact: This portfolio is AI-powered. Try asking questions! 🚀
-
-──────────────────
-Role: Full-Stack Developer
-Focus: AI & Systems Engineering
-
-──────────────────
-CPU: Python, Bash, JavaScript
-GPU: React, Node.js, Express
-Memory: Linux SysAdmin, AI Agents
-Disk: Full-Stack Web, Cloud
-
-──────────────────
-Packages:
-  • Problem Solver (stable)
-  • Documentation Writer (latest)
-  • Automation Engineer (testing)
-  • Community Builder (installed)
-
-──────────────────
-Status: Available for opportunities
-Contact: Type 'contact' for info
-</div>
-
-──────────────────
-Theme Colors (click to copy):
-<span class="color-palette">
-  <span class="color-dot" data-color="#89b4fa" style="background: #89b4fa;" title="Blue - #89b4fa">●</span>
-  <span class="color-dot" data-color="#cba6f7" style="background: #cba6f7;" title="Mauve - #cba6f7">●</span>
-  <span class="color-dot" data-color="#f38ba8" style="background: #f38ba8;" title="Red - #f38ba8">●</span>
-  <span class="color-dot" data-color="#fab387" style="background: #fab387;" title="Peach - #fab387">●</span>
-  <span class="color-dot" data-color="#f9e2af" style="background: #f9e2af;" title="Yellow - #f9e2af">●</span>
-  <span class="color-dot" data-color="#a6e3a1" style="background: #a6e3a1;" title="Green - #a6e3a1">●</span>
-  <span class="color-dot" data-color="#94e2d5" style="background: #94e2d5;" title="Teal - #94e2d5">●</span>
-  <span class="color-dot" data-color="#74c7ec" style="background: #74c7ec;" title="Sapphire - #74c7ec">●</span>
-</span>
-`,
-
-  skills: `
->> SYSTEMS & SCRIPTING <<
-─────────────────────────
-
-[ LINUX SYSTEM ADMIN ]
-  • Distro-Hopping: Arch, EndeavourOS, Mint, Debian
-  • Desktop Environments: KDE Plasma, Hyprland, X11, Wayland
-  • Kernel-level troubleshooting & system recovery
-  • Networking: ZeroTier, SSH Hardening, DNS/Pi-hole
-
-[ AUTOMATION & SCRIPTING ]
-  • Python (Primary Language for scripting & automation)
-  • Bash Scripting (System tasks & cron jobs)
-  • Systemd (Service management & auto-starts)
-
->> WEB & CLOUD ARCHITECTURE <<
-──────────────────────────────
-
-[ FULL-STACK DEVELOPMENT ]
-  • React.js (Frontend Architecture)
-  • Node.js & Express (Backend Logic)
-  • Firebase & SQL (Database Management)
-  • Vercel (CI/CD & Deployment)
-
-[ CLOUD & DEVOPS ]
-  • Google Cloud Platform (Vertex AI, Cloud Run)
-  • Docker (Containerization Basics)
-  • Server Hosting (Minecraft, Self-hosted VMs)
-
->> AI & FUTURE TECH <<
-──────────────────────
-
-[ GEN-AI CONCEPTS ]
-  • RAG (Retrieval-Augmented Generation)
-  • Agentic AI & LLM Orchestration
-  • AI-Assisted Dev: Directed AI to build "fra-atlas-mvp"
-
-[ TOOLS ]
-  • Playwright (Headless Browser Automation)
-  • Google Gemini API & Vertex AI Agents
-
->> LEADERSHIP & COMMUNITY <<
-────────────────────────────
-
-[ COMMUNITY MANAGEMENT ]
-  • Building & managing Discord communities
-  • Discord.js Bot Development (Automation bots)
-
-[ SOFT SKILLS ]
-  • Technical Documentation (High-quality docs)
-  • Mentorship (Vegavath & Hackathon Leadership)
-  • Problem Solving (The "Break it to fix it" mindset)
-
->> SPOKEN LANGUAGES <<
-──────────────────────
-
-  • English (Full Working Proficiency)
-  • Hindi (Full Working Proficiency)
-  • Bengali (Bilingual or Native Proficiency)
-`,
-
-  projects: [
-    // --- NEW RESUME PROJECTS (Top Priority) ---
-    {
-      name: "pesu-content-automation",
-      category: "Python / Playwright / PyInstaller",
-      description: `
-A robust automation suite designed to streamline the retrieval and 
-archival of university course materials.
-
-Tech Stack:
-  • Python (Core Logic)
-  • Playwright (Headless Browser Automation)
-  • PyInstaller (Cross-platform Packaging)
-  • Regex (Intelligent Parsing)
-
-Role & Learning:
-  • Architected headless browser navigation to handle portal instability
-  • Built file pipelines processing 100+ files error-free
-  • Packaged for Windows/Linux/macOS for non-technical peers
-  • Reduced manual archival time by ~95%
-
-Status: Deployed (v1.0)
-`,
-      github: "#", // Hidden until 100% complete
-      highlights: [
-        "95% Manual Time Reduction",
-        "Headless Browser Automation",
-        "Cross-Platform Executables"
-      ]
-    },
-    {
-      name: "network-media-controller",
-      category: "Linux / systemd / Networking",
-      description: `
-A self-hosted infrastructure project focused on network optimization, 
-ad-blocking, and hardware-accelerated media streaming.
-
-Tech Stack:
-  • Linux (Arch/Debian) & systemd
-  • Intel QuickSync (Hardware Acceleration)
-  • ZeroTier (Encrypted Tunneling)
-  • DNS Sinkhole (Pi-hole)
-
-Role & Learning:
-  • Configured Intel Iris Xe iGPU for transcoding (40% less CPU load)
-  • Hardened security via SSH Keys and ZeroTier tunneling
-  • Eliminated 100% of public port exposure
-  • Reduced network bandwidth usage by 15%
-
-Status: Active / Self-Hosted
-`,
-      github: "#", // Hidden until 100% complete
-      highlights: [
-        "Hardware Acceleration (Iris Xe)",
-        "ZeroTier Security",
-        "40% CPU Load Reduction"
-      ]
-    },
-    {
-      name: "semwork-planner",
-      category: "React / Firebase / AI",
-      description: `
-An intelligent academic planner that parses raw syllabus text into 
-interactive, NoSQL-compatible tracking checklists.
-
-Tech Stack:
-  • React.js (Frontend)
-  • Firebase (NoSQL Database & Auth)
-  • Google Gemini API (AI Integration)
-  • JSON (Data Structure)
-
-Role & Learning:
-  • Designed NoSQL schema for flexible course structures
-  • Formulated idempotent sync protocols (Zero Data Loss)
-  • Integrated AI Study Assistant with sub-200ms latency
-  • Optimized for reducing manual tracking time by 50%
-
-Status: Beta / User Testing
-`,
-      github: "#", // Hidden until 100% complete
-      highlights: [
-        "AI Study Assistant",
-        "NoSQL Syllabus Parsing",
-        "Idempotent Sync Protocol"
-      ]
-    },
-
-    // --- EXISTING PORTFOLIO PROJECTS (Preserved) ---
-    {
-      name: "active-deception-lab",
-      category: "Cybersecurity / Linux / Python",
-      description: `
-A sophisticated cybersecurity project focused on building active 
-deception systems for threat detection and analysis.
-
-Tech Stack:
-  • Python for core logic and automation
-  • Linux system-level integration
-  • Bash scripting for deployment
-
-Role & Learning:
-  • Designed system architecture from scratch
-  • Implemented kernel-level monitoring
-  • Created comprehensive documentation
-  • Learned advanced Linux security concepts
-
-Status: Active Development
-`,
-      github: "https://github.com/UltraBot05/active-deception-lab",
-      highlights: [
-        "Custom honeypot implementation",
-        "Real-time threat monitoring",
-        "Automated response systems"
-      ]
-    },
-    {
-      name: "genai-agent-gcp",
-      category: "GenAI / Google Cloud",
-      description: `
-Professional-grade AI agent built during Google Cloud GenAI bootcamp,
-demonstrating advanced cloud-native AI development.
-
-Tech Stack:
-  • Google Cloud Vertex AI
-  • Agent Builder
-  • Cloud SQL
-  • Cloud Run for deployment
-
-Role & Learning:
-  • Completed professional Google Cloud codelab
-  • Built and deployed working AI agent
-  • Integrated multiple cloud services
-  • Learned RAG and agent orchestration concepts
-
-Status: Deployed on GCP
-`,
-      github: "https://github.com/UltraBot05/genai-agent-gcp",
-      highlights: [
-        "Cloud-native AI agent",
-        "RAG implementation",
-        "Production deployment"
-      ]
-    },
-    {
-      name: "discord-bots",
-      category: "Node.js / Automation",
-      description: `
-Collection of Discord bots for community management and automation,
-built with Node.js and Discord.js.
-
-Tech Stack:
-  • Node.js runtime
-  • Discord.js library
-  • Custom command handlers
-  • Event-driven architecture
-
-Role & Learning:
-  • Designed bot architecture
-  • Implemented custom commands
-  • Managed bot deployment and hosting
-  • Learned async JavaScript patterns
-
-Status: Active in multiple servers
-`,
-      github: "https://github.com/UltraBot05/discord-bots",
-      highlights: [
-        "Moderation automation",
-        "Custom command system",
-        "Multi-server deployment"
-      ]
-    }
-  ],
-
-  contact: `
->> GET IN TOUCH <<
-──────────────────
-
-I'm always open to discussing new opportunities, collaborations,
-or just chatting about systems, Linux, or AI!
-
-  📧 Email:       dutta13abhigyan@gmail.com
-  🔗 LinkedIn:    linkedin.com/in/adutta05
-  🐙 GitHub:      github.com/UltraBot05
-  💬 Discord:     @ub05 (ID: 923189505631059979)
-
-Feel free to reach out through any of these channels.
-I typically respond within 24 hours.
-`,
-
-  socials: {
-    github: "https://github.com/UltraBot05",
-    linkedin: "https://www.linkedin.com/in/adutta05",
-    discord: "https://discord.com/users/923189505631059979",
-    email: "dutta13abhigyan@gmail.com"
+  personal: {
+    name: 'Abhigyan Dutta',
+    handle: 'B3ast',
+    title: 'Software Engineer · Systems & Open Source',
+    subtitle: 'B.Tech CSE · PES University · 2024-Present',
+    location: 'Bengaluru, India',
+    tagline: 'I contribute to open-source infrastructure, harden Linux systems, and build full-stack tools. Right now I fix real bugs in OpenWISP and lead engineering at Vegavath.',
+    email: 'dutta13abhigyan@gmail.com',
+    github: 'https://github.com/UltraBot05',
+    linkedin: 'https://linkedin.com/in/adutta05',
+    os: 'EndeavourOS + Hyprland',
+    shell: 'zsh + starship',
+    editor: 'Neovim',
   },
 
-  help: `
->> AVAILABLE COMMANDS <<
-────────────────────────
+  projects: [
+    {
+      id: 'network-media-controller',
+      name: 'Self-Hosted Network & Media Controller',
+      hook: 'A hardened home-lab: DNS sinkhole, GPU-accelerated transcoding, zero public ports.',
+      tech: ['Linux', 'systemd', 'Networking', 'ZeroTier'],
+      github: null,
+      demo: null,
+      highlights: [
+        'Network-wide DNS sinkhole filtering telemetry at the protocol level, cutting client bandwidth by 15%',
+        'Real-time transcoding pipeline on Intel Iris Xe iGPU, tuned scheduling to cut CPU load by 40%',
+        'Hardened with SSH keys and a ZeroTier overlay, eliminating 100% of public-facing port exposure',
+      ],
+    },
+    {
+      id: 'pesu-content-automation',
+      name: 'PESU Content Automation Suite',
+      hook: 'Headless browser automation that scrapes and archives course material, cutting manual work 95%.',
+      tech: ['Python', 'Playwright', 'PyInstaller', 'Regex'],
+      github: null,
+      demo: null,
+      highlights: [
+        'Headless browser pipeline to scrape and archive course materials, cutting manual archival time by 95%',
+        'Regex-driven pipeline parsing 100+ proprietary PPT formats into PDFs error-free across malformed inputs',
+        'Cross-platform executables (.exe, .dmg, .deb) via PyInstaller for non-technical users',
+      ],
+    },
+    {
+      id: 'semwork',
+      name: 'SemWork - Academic Resource Planner',
+      hook: 'Turns raw syllabus text into a synced, AI-assisted study planner.',
+      tech: ['React', 'Firebase', 'AI Integration'],
+      github: null,
+      demo: null,
+      highlights: [
+        'Pipeline converting raw syllabus text into NoSQL-compatible JSON, cutting manual tracking time by 50%',
+        'Idempotent sync protocol resolving concurrent conflicts with zero-loss user state preservation',
+        'AI study assistant with sub-200ms response latency via prompt engineering',
+      ],
+    },
+    {
+      id: 'vegavath-site',
+      name: 'Vegavath Club Website',
+      hook: 'The full club platform for Team Vegavath, built and shipped as Tech Lead. Live at vegavath.live.',
+      tech: ['Next.js', 'TypeScript', 'React Three Fiber', 'Neon Postgres', 'Cloudflare R2', 'Vercel'],
+      github: null,
+      demo: 'https://vegavath.live',
+      highlights: [
+        'Built and maintained the entire club platform end to end',
+        'Architected CI/CD pipelines achieving 40% faster deploys',
+        'Led and mentored a 10-person junior engineering team',
+      ],
+    },
+    // Additional real projects - smaller systems/C work, not on the 1-page resume
+    {
+      id: 'tcp-auction-engine',
+      name: 'TCP Auction Engine',
+      hook: 'Multithreaded auction server in C over TLS, with server-side anti-sniping.',
+      tech: ['C', 'POSIX threads', 'OpenSSL', 'TLS'],
+      github: null,
+      demo: null,
+      highlights: [
+        'Concurrent bidders over TLS with a per-lot mutex strategy',
+        'Anti-sniping that auto-extends the timer on last-second bids',
+        'Race-free bid ordering without a global lock',
+      ],
+    },
+    {
+      id: 'linux-container-runtime',
+      name: 'Linux Container Runtime',
+      hook: 'A container runtime built from clone() and namespaces, no Docker or runc.',
+      tech: ['C', 'clone()', 'Linux namespaces', 'LKM', 'ioctl'],
+      github: null,
+      demo: null,
+      highlights: [
+        'PID, mount, UTS, network and IPC namespaces via clone() flags',
+        'A custom kernel module exposing container stats through ioctl()',
+        'CFS scheduler quota experiments with cgroups',
+      ],
+    },
+    {
+      id: 'pes-vcs',
+      name: 'PES-VCS',
+      hook: "A from-scratch reimplementation of Git's core object model in C.",
+      tech: ['C', 'SHA-1', 'zlib', 'Git internals'],
+      github: null,
+      demo: null,
+      highlights: [
+        'Object store: blobs, trees, commits, SHA-1 addressed and zlib compressed',
+        'Working index / staging area',
+        'init, add, commit, log and diff commands',
+      ],
+    },
+    {
+      id: 'mehnat',
+      name: 'Mehnat',
+      hook: 'A native Android fitness app: GPS run tracking and gym logging, fully offline.',
+      tech: ['Kotlin', 'Jetpack Compose', 'Room', 'Android'],
+      github: null,
+      demo: null,
+      highlights: [
+        'Live GPS run tracking with distance and pace',
+        'Gym session logger for exercises, sets, reps and weight',
+        'Room database for fully offline persistence',
+      ],
+    },
+  ],
 
-  about        Show information about me (System Specs)
-  skills       Display my technical toolkit
-  projects     List my engineering projects
-  contact      Get my contact information
-  clear        Clear the terminal screen
-  help         Show this help message
+  experience: [
+    {
+      org: 'PGP Glass',
+      role: 'Infrastructure & Cybersecurity Intern',
+      period: 'June 2026',
+      type: 'internship',
+      notes: 'Infrastructure hardening and cybersecurity work in a production environment. Real-world exposure to network security, systems administration, and secure deployment pipelines.',
+    },
+    {
+      org: 'GirlScript Summer of Code 2026 (GSSoC)',
+      role: 'Open Source Mentor',
+      period: 'May 2026 - Present',
+      type: 'mentorship',
+      notes: "Mentoring contributors on the Gitbun project. Reviewing pull requests, guiding newcomers through open-source workflows, and maintaining code quality across the contributor base.",
+    },
+    {
+      org: 'Team Vegavath',
+      role: 'Tech Lead & Club Lead',
+      period: 'Nov 2025 - Present',
+      type: 'technical',
+      notes: 'Built and maintained the club platform, architected CI/CD for 40% faster deploys, and mentored a 10-person junior team. Leading a student motorsport innovation club at PESU ECC.',
+    },
+  ],
+
+  skillGroups: {
+    SYSTEMS:  ['C', 'Linux internals', 'clone() · namespaces · LKMs · ioctl', 'POSIX threads', 'socket programming', 'SSL/TLS', 'CFS scheduler'],
+    SECURITY: ['CTF (pwn/rev/web)', 'pwntools', 'Ghidra', 'Burp Suite', 'ffuf', 'binary exploitation'],
+    WEB:      ['Next.js', 'TypeScript', 'React', 'Tailwind', 'Node/Express', 'Neon Postgres', 'React Three Fiber', 'Framer Motion', 'Cloudflare R2'],
+    TOOLS:    ['Docker', 'Git internals', 'GCP', 'Playwright', 'Kotlin', 'Jetpack Compose'],
+  },
+
+  education: {
+    school: 'PES University',
+    degree: 'B.Tech in Computer Science & Engineering',
+    period: '2024 - Present',
+    location: 'Bengaluru, India',
+    coursework: ['Operating Systems', 'Linux Administration', 'Computer Networks', 'Data Structures & Algorithms', 'Database Management', 'Cloud Computing', 'Software Engineering', 'Information Security'],
+  },
+
+  system: {
+    os: 'B3astOS 2.0.26-hyprland x86_64 GNU/Linux',
+    cpu: 'AMD Ryzen 7',
+    memory: '16G',
+    hostname: 'b3astos',
+    uptime: '42 days',
+  },
+};
+
+/* ============================================================
+   Terminal-formatted strings - consumed by commandHandler.js.
+   Same field names as before so the terminal keeps working.
+   ============================================================ */
+
+portfolioData.about = `
+abhigyan@b3astos
+----------------
+OS       EndeavourOS (Hyprland wm)
+Shell    zsh + starship
+Role     Software Engineer, Systems & Open Source
+Study    B.Tech CSE, PES University (2024-Present)
+Now      Open Source Contributor @ OpenWISP
+Lead     Technical Lead, Team Vegavath
+GitHub   UltraBot05
+
+Languages  C, C++, Python, JavaScript, SQL, Bash
+Systems    Linux, systemd, SSH, ZeroTier, TCP/IP, DNS
+Tools      Git, Pytest, Playwright, CI/CD, Vercel
+Concepts   DSA, distributed systems, concurrency, caching
+
+"I break things to understand them, then fix them for good."
+
+Type 'projects' to see what I build, or just ask a question.
+`;
+
+portfolioData.skills = `
+>> LANGUAGES <<
+---------------
+  C, C++, Python, JavaScript, SQL, Bash
+
+>> SYSTEMS & INFRASTRUCTURE <<
+------------------------------
+  Linux (Debian/Ubuntu), systemd, SSH, ZeroTier, TCP/IP, DNS
+
+>> TOOLS <<
+-----------
+  Git, Pytest, Playwright, REST APIs, CI/CD, Vercel/Netlify
+
+>> CONCEPTS <<
+--------------
+  DSA, distributed systems, system architecture,
+  cloud (AWS/GCP), concurrency and caching, software design
+`;
+
+portfolioData.contact = `
+>> GET IN TOUCH <<
+------------------
+
+  email:     dutta13abhigyan@gmail.com
+  github:    github.com/UltraBot05
+  linkedin:  linkedin.com/in/adutta05
+
+best for internship inquiries, collaboration, or a good bug to chase.
+`;
+
+portfolioData.socials = {
+  github: 'https://github.com/UltraBot05',
+  linkedin: 'https://www.linkedin.com/in/adutta05',
+  email: 'dutta13abhigyan@gmail.com',
+};
+
+portfolioData.help = `
+>> AVAILABLE COMMANDS <<
+------------------------
+
+  about        whoami and system specs
+  skills       languages, systems, tools, concepts
+  projects     list my engineering projects
+  contact      how to reach me
+  clear        clear the terminal screen
+  help         show this help message
 
 >> AI ASSISTANT MODE <<
-───────────────────────
+-----------------------
 
-You can also just type natural language questions!
+You can also just type a natural-language question, for example:
+  "What did you do at OpenWISP?"
+  "Tell me about the media controller project."
+  "What languages do you know?"
+  "How can I contact you?"
 
-Examples:
-  • "What experience do you have with Linux?"
-  • "Tell me about your automation projects."
-  • "Do you know React?"
-  • "How can I contact you?"
+There may also be... undocumented commands. Explorers welcome.
+`;
 
-The AI assistant will understand your intent and show you the 
-relevant information.
-
-Type a command or ask a question to get started!
-`
-};
+// Terminal `projects` command format (name/category/description/highlights)
+portfolioData.terminalProjects = portfolioData.projects.map(p => ({
+  name: p.id,
+  category: p.tech.slice(0, 4).join(' / '),
+  description: `\n${p.hook}\n\n${p.highlights.map(h => `  - ${h}`).join('\n')}\n`,
+  github: p.github && p.github !== '#' ? p.github : null,
+  highlights: p.highlights,
+}));
 
 export default portfolioData;

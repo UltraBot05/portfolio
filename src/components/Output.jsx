@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import DOMPurify from 'dompurify';
 import './Output.css';
 
 function Output({ history }) {
@@ -22,28 +23,12 @@ function Output({ history }) {
     return () => document.removeEventListener('click', handleColorClick);
   }, []);
   
-  // Safe HTML rendering - sanitize HTML content
-  const createSafeHTML = (html) => {
-    // Create a safe version by parsing and filtering
-    const temp = document.createElement('div');
-    temp.innerHTML = html;
-    
-    // Remove any potentially dangerous elements
-    const dangerous = temp.querySelectorAll('script, iframe, object, embed, link');
-    dangerous.forEach(el => el.remove());
-    
-    // Remove dangerous attributes
-    const allElements = temp.querySelectorAll('*');
-    allElements.forEach(el => {
-      Array.from(el.attributes).forEach(attr => {
-        if (attr.name.startsWith('on') || (attr.name === 'href' && attr.value.includes('javascript:'))) {
-          el.removeAttribute(attr.name);
-        }
-      });
-    });
-    
-    return temp.innerHTML;
-  };
+  // Terminal output can include AI-generated text, so sanitize every string
+  // with DOMPurify before it reaches the DOM (defense-in-depth XSS guard).
+  const createSafeHTML = (html) => DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: ['span', 'div', 'pre', 'b', 'i', 'strong', 'em', 'br', 'a'],
+    ALLOWED_ATTR: ['style', 'class', 'data-color', 'href', 'target', 'rel', 'title'],
+  });
 
   return (
     <div className="output">
@@ -51,7 +36,7 @@ function Output({ history }) {
         <div key={index} className={`output-entry ${entry.type}`}>
           {entry.type === 'command' && (
             <div className="command-echo">
-              <span className="prompt-user">PortfolioOS@Abhigyan</span>
+              <span className="prompt-user">b3ast@b3astos</span>
               <span className="prompt-separator">:</span>
               <span className="prompt-path">~</span>
               <span className="prompt-symbol">$</span>

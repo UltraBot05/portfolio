@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <style>
+      .bg { fill: #0d0d1a; }
+      .titlebar { fill: #1a1a2e; }
+      .dot-r { fill: #ff5f57; }
+      .dot-y { fill: #febc2e; }
+      .dot-g { fill: #28c840; }
+      .title-text { fill: #8899aa; font-family: monospace; font-size: 11px; }
+      .line { font-family: 'Courier New', monospace; font-size: 12px; }
+      .cyan { fill: #00d4ff; }
+      .green { fill: #4ade80; }
+      .white { fill: #e8eaf0; }
+      .dim { fill: #556677; }
+      .yellow { fill: #ffd93d; }
+      .red { fill: #ff6b6b; }
+      .accent { fill: #00bcd4; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="600" height="340"/>
+
+  <!-- Title bar -->
+  <rect class="titlebar" width="600" height="32"/>
+  <circle class="dot-r" cx="16" cy="16" r="6"/>
+  <circle class="dot-y" cx="34" cy="16" r="6"/>
+  <circle class="dot-g" cx="52" cy="16" r="6"/>
+  <text class="title-text" x="300" y="21" text-anchor="middle">tcp-auction-engine — ./server</text>
+
+  <!-- Accent bar top -->
+  <rect fill="#00bcd4" x="0" y="32" width="600" height="3"/>
+
+  <!-- Terminal content -->
+  <!-- Line 1 -->
+  <text class="line dim" x="20" y="65">$</text>
+  <text class="line white" x="32" y="65">./auction-server --port 8443 --tls cert.pem</text>
+
+  <!-- Line 2 -->
+  <text class="line accent" x="20" y="87">[  0.000]</text>
+  <text class="line white" x="95" y="87">TLS context initialized · cipher: TLS_AES_256_GCM_SHA384</text>
+
+  <!-- Line 3 -->
+  <text class="line accent" x="20" y="105">[  0.012]</text>
+  <text class="line white" x="95" y="105">Listening on 0.0.0.0:8443 · workers: 8 · anti-snipe: ON</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="118" x2="580" y2="118" stroke="#1e2d3d" stroke-width="1"/>
+
+  <!-- Line 4 -->
+  <text class="line accent" x="20" y="138">[  2.341]</text>
+  <text class="line cyan" x="95" y="138">BID ACCEPTED</text>
+  <text class="line white" x="195" y="138">Thread 4 · Item: #0042 · Bidder: user_7</text>
+
+  <!-- Line 5 -->
+  <text class="line dim" x="95" y="156">               Price: ₹14,500 · TLS: ✓ · mutex: lot_42</text>
+
+  <!-- Line 6 -->
+  <text class="line accent" x="20" y="176">[  2.341]</text>
+  <text class="line yellow" x="95" y="176">ANTI-SNIPE</text>
+  <text class="line white" x="178" y="176">Timer extended +30s · lot_42 · last_bid_delta: 4.2s</text>
+
+  <!-- Line 7 -->
+  <text class="line accent" x="20" y="196">[  2.399]</text>
+  <text class="line green" x="95" y="196">BID ACCEPTED</text>
+  <text class="line white" x="197" y="196">Thread 2 · Item: #0042 · Bidder: user_12</text>
+
+  <!-- Line 8 -->
+  <text class="line dim" x="95" y="214">               Price: ₹14,800 · TLS: ✓ · race-free ordering ✓</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="228" x2="580" y2="228" stroke="#1e2d3d" stroke-width="1"/>
+
+  <!-- Stats section -->
+  <text class="line dim" x="20" y="250">concurrent bidders: 47</text>
+  <text class="line dim" x="180" y="250">active lots: 12</text>
+  <text class="line dim" x="310" y="250">bids/sec: 380</text>
+  <text class="line dim" x="430" y="250">dropped: 0</text>
+
+  <!-- Code snippet -->
+  <text class="line dim" x="20" y="278">/* per-lot mutex — no global lock */</text>
+  <text class="line cyan" x="20" y="298">pthread_mutex_lock</text>
+  <text class="line white" x="158" y="298">(&amp;lot-&gt;mutex);</text>
+  <text class="line yellow" x="265" y="298">if</text>
+  <text class="line white" x="282" y="298">(bid &gt; lot-&gt;highest) { lot-&gt;highest = bid; }</text>
+
+  <!-- Bottom bar -->
+  <rect fill="#0a0a18" x="0" y="316" width="600" height="24"/>
+  <text class="line dim" x="20" y="332">C · POSIX threads · OpenSSL/TLS · anti-sniping</text>
+  <text class="line accent" x="500" y="332">● LIVE</text>
+</svg>

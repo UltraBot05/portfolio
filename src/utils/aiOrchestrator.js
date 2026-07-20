@@ -1,57 +1,37 @@
 import axios from 'axios';
 
-// This function queries the AI orchestrator backend
+// Query the AI orchestrator backend. Always resolves to a normalized shape
+// { response, command, offline } so callers never have to catch.
 export async function queryAIOrchestrator(input) {
   try {
-    // In development, use local backend
-    // In production (Vercel), use serverless function
-    const apiUrl = import.meta.env.PROD 
-      ? '/api/orchestrator'
-      : '/api/orchestrator';
-
-    const response = await axios.post(apiUrl, {
-      input: input
-    }, {
-      timeout: 10000 // 10 second timeout
-    });
-
-    return response.data;
-  } catch (error) {
-    console.error('AI Orchestrator API error:', error);
-    
-    // If AI fails, return a fallback
+    const { data } = await axios.post('/api/orchestrator', { input }, { timeout: 10000 });
+    // Backend may return only `command` (e.g. when no API key is configured);
+    // synthesize a friendly response so the chat never looks empty.
     return {
-      command: null,
-      response: `I couldn't process that request. Type "help" to see available commands.`
+      response: data.response || null,
+      command: data.command || null,
+      offline: false,
+    };
+  } catch (error) {
+    // No serverless function in local dev, or the backend is down. Degrade to
+    // local keyword mapping so the chat still answers portfolio questions.
+    const command = localCommandMapping(input);
+    return {
+      response: command ? null : "I can help with my projects, skills, experience, and contact info. Try 'projects' or ask about OpenWISP.",
+      command,
+      offline: true,
     };
   }
 }
 
-// Fallback local processing if backend is unavailable
+// Local keyword → command fallback (used when the API is unreachable).
 export function localCommandMapping(input) {
-  const lowerInput = input.toLowerCase();
-  
-  // Simple keyword matching as fallback
-  if (lowerInput.includes('skill') || lowerInput.includes('can you') || lowerInput.includes('what do you know')) {
-    return 'skills';
-  }
-  
-  if (lowerInput.includes('about') || lowerInput.includes('who are you') || lowerInput.includes('tell me about yourself')) {
-    return 'about';
-  }
-  
-  if (lowerInput.includes('project') || lowerInput.includes('built') || lowerInput.includes('work')) {
-    return 'projects';
-  }
-  
-  if (lowerInput.includes('contact') || lowerInput.includes('reach') || lowerInput.includes('email') || lowerInput.includes('linkedin')) {
-    return 'contact';
-  }
-  
-  if (lowerInput.includes('help') || lowerInput.includes('command')) {
-    return 'help';
-  }
-  
+  const s = input.toLowerCase();
+  if (/\b(skill|know|good at|stack|tech|language|python|linux|react)\b/.test(s)) return 'skills';
+  if (/\b(about|who are you|yourself|background|openwisp|study)\b/.test(s)) return 'about';
+  if (/\b(project|built|work|made|vegavath|semwork|automation|media)\b/.test(s)) return 'projects';
+  if (/\b(contact|reach|email|linkedin|github|hire|available)\b/.test(s)) return 'contact';
+  if (/\b(help|command|what can you do)\b/.test(s)) return 'help';
   return null;
 }
 

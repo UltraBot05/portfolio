@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <style>
+      .bg { fill: #0d0d1a; }
+      .titlebar { fill: #1a1a2e; }
+      .dot-r { fill: #ff5f57; }
+      .dot-y { fill: #febc2e; }
+      .dot-g { fill: #28c840; }
+      .title-text { fill: #8899aa; font-family: monospace; font-size: 11px; }
+      .line { font-family: 'Courier New', monospace; font-size: 11.5px; }
+      .violet { fill: #a78bfa; }
+      .green { fill: #4ade80; }
+      .white { fill: #e8eaf0; }
+      .dim { fill: #556677; }
+      .yellow { fill: #ffd93d; }
+      .red { fill: #ff6b6b; }
+      .cyan { fill: #67e8f9; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="600" height="340"/>
+  <rect class="titlebar" width="600" height="32"/>
+  <circle class="dot-r" cx="16" cy="16" r="6"/>
+  <circle class="dot-y" cx="34" cy="16" r="6"/>
+  <circle class="dot-g" cx="52" cy="16" r="6"/>
+  <text class="title-text" x="300" y="21" text-anchor="middle">linux-container-runtime — dmesg | tail</text>
+
+  <!-- Violet accent bar -->
+  <rect fill="#7c3aed" x="0" y="32" width="600" height="3"/>
+
+  <!-- dmesg-style kernel output -->
+  <text class="line violet" x="20" y="64">[  0.000000]</text>
+  <text class="line white" x="110" y="64">B3astOS namespace init: clone(CLONE_NEWPID|CLONE_NEWNS)</text>
+
+  <text class="line violet" x="20" y="82">[  0.000012]</text>
+  <text class="line green" x="110" y="82">→ PID 1 in new namespace · UTS: b3ascont · IPC: isolated</text>
+
+  <text class="line violet" x="20" y="100">[  0.000028]</text>
+  <text class="line white" x="110" y="100">mount: / → overlayfs · lowerdir=/base · upperdir=/rw</text>
+
+  <text class="line violet" x="20" y="118">[  0.000055]</text>
+  <text class="line cyan" x="110" y="118">cgroup: cpu.cfs_quota_us=50000 · cpu.cfs_period_us=100000</text>
+
+  <line x1="20" y1="132" x2="580" y2="132" stroke="#1e2d3d" stroke-width="1"/>
+
+  <!-- LKM ioctl section -->
+  <text class="line dim" x="20" y="152"># kernel module: b3ascont.ko</text>
+  <text class="line violet" x="20" y="172">insmod</text>
+  <text class="line white" x="80" y="172">b3ascont.ko</text>
+  <text class="line green" x="195" y="172">→ registered ioctl: BCONT_STAT (0xB3)</text>
+
+  <text class="line dim" x="20" y="192">$ ioctl(fd, BCONT_STAT, &amp;stats)</text>
+
+  <text class="line dim" x="20" y="212">  pids: 3</text>
+  <text class="line dim" x="100" y="212">  mem_kb: 18432</text>
+  <text class="line dim" x="235" y="212">  cpu_ns: 124_800_000</text>
+  <text class="line dim" x="390" y="212">  net_rx: 0</text>
+
+  <line x1="20" y1="228" x2="580" y2="228" stroke="#1e2d3d" stroke-width="1"/>
+
+  <!-- CFS scheduler experiment -->
+  <text class="line dim" x="20" y="248"># CFS quota experiment: 50% CPU cap</text>
+  <text class="line white" x="20" y="268">echo</text>
+  <text class="line yellow" x="53" y="268">50000</text>
+  <text class="line white" x="105" y="268">&gt; /sys/fs/cgroup/b3ascont/cpu.cfs_quota_us</text>
+
+  <text class="line violet" x="20" y="290">[  4.221]</text>
+  <text class="line green" x="110" y="290">throttled: container held to 0.50 CPUs · no OOM</text>
+
+  <rect fill="#0a0a18" x="0" y="316" width="600" height="24"/>
+  <text class="line dim" x="20" y="332">C · clone() · Linux namespaces · LKM · ioctl · CFS</text>
+  <text class="line violet" x="490" y="332">● RUNNING</text>
+</svg>

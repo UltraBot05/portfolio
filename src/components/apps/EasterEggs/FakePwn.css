@@ -1,0 +1,27 @@
+/* Fake pwn terminal - stays dark in both OS themes (it's a terminal). */
+.pwn-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--term-bg);
+  color: var(--term-text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.pwn-app.flash { animation: pwnFlash 0.5s ease; }
+@keyframes pwnFlash {
+  0%, 100% { background: var(--term-bg); }
+  50% { background: rgba(79, 216, 235, 0.25); }
+}
+
+.pwn-output { flex: 1; overflow-y: auto; padding: 14px 16px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+.pwn-line { color: var(--term-text); }
+.pwn-line.sys { color: var(--term-accent); }
+.pwn-line.err { color: var(--term-red); }
+.pwn-line.win { color: var(--term-green); }
+.pwn-line.echo { color: var(--term-dim); }
+
+.pwn-input-row { flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+.pwn-prompt { color: var(--term-red); }
+.pwn-input { flex: 1; background: none; border: none; outline: none; color: var(--term-text); font-family: var(--font-mono); font-size: 13px; }

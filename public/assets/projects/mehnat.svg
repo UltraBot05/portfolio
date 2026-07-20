@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <style>
+      .bg { fill: #0a1a0f; }
+      .titlebar { fill: #0d1f14; }
+      .dot-r { fill: #ff5f57; }
+      .dot-y { fill: #febc2e; }
+      .dot-g { fill: #28c840; }
+      .title-text { fill: #8899aa; font-family: monospace; font-size: 11px; }
+      .line { font-family: 'Courier New', monospace; font-size: 11.5px; }
+      .neonmint { fill: #4ade80; }
+      .kotlin { fill: #a855f7; }
+      .white { fill: #e8eaf0; }
+      .dim { fill: #445544; }
+      .yellow { fill: #ffd93d; }
+      .blue { fill: #60a5fa; }
+      .orange { fill: #fb923c; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="600" height="340"/>
+  <rect class="titlebar" width="600" height="32"/>
+  <circle class="dot-r" cx="16" cy="16" r="6"/>
+  <circle class="dot-y" cx="34" cy="16" r="6"/>
+  <circle class="dot-g" cx="52" cy="16" r="6"/>
+  <text class="title-text" x="300" y="21" text-anchor="middle">mehnat — RunTrackingScreen.kt</text>
+
+  <!-- Neon Mint accent bar -->
+  <rect fill="#4ade80" x="0" y="32" width="600" height="3"/>
+
+  <!-- Kotlin Composable code snippet -->
+  <text class="line dim" x="20" y="62">// GPS Run Tracking — Jetpack Compose</text>
+
+  <text class="line kotlin" x="20" y="82">@Composable</text>
+
+  <text class="line blue" x="20" y="100">fun</text>
+  <text class="line neonmint" x="50" y="100">RunTrackingScreen</text>
+  <text class="line white" x="198" y="100">(viewModel:</text>
+  <text class="line orange" x="290" y="100">RunViewModel</text>
+  <text class="line white" x="382" y="100">) {</text>
+
+  <text class="line dim" x="40" y="118">val uiState by viewModel.uiState.collectAsState()</text>
+
+  <text class="line dim" x="40" y="138">val locationUpdates = remember {</text>
+  <text class="line neonmint" x="60" y="154">LocationFlow</text>
+  <text class="line white" x="160" y="154">(context, interval = 1.seconds)</text>
+  <text class="line dim" x="40" y="170">}</text>
+
+  <line x1="20" y1="184" x2="580" y2="184" stroke="#0d2a16" stroke-width="1"/>
+
+  <!-- UI snippet -->
+  <text class="line dim" x="40" y="204">Column(modifier = Modifier.fillMaxSize()) {</text>
+
+  <text class="line kotlin" x="60" y="222">Text</text>
+  <text class="line white" x="97" y="222">(text = "</text>
+  <text class="line neonmint" x="148" y="222">${"${uiState.distance}"}</text>
+  <text class="line white" x="258" y="222"> km",</text>
+  <text class="line dim" x="320" y="222">// live GPS</text>
+
+  <text class="line dim" x="80" y="240">style = MaterialTheme.typography.displayLarge)</text>
+
+  <text class="line kotlin" x="60" y="260">PaceIndicator</text>
+  <text class="line white" x="157" y="260">(pace = uiState.currentPace,</text>
+  <text class="line dim" x="60" y="276">            unit =</text>
+  <text class="line yellow" x="156" y="276">PaceUnit.MIN_PER_KM</text>
+  <text class="line white" x="296" y="276">)</text>
+
+  <text class="line dim" x="40" y="296">// Room DB: offline persistence ✓</text>
+
+  <rect fill="#071209" x="0" y="312" width="600" height="28"/>
+  <text class="line dim" x="20" y="332">Kotlin · Jetpack Compose · Room · GPS tracking · offline-first</text>
+  <text class="line neonmint" x="487" y="332">● ANDROID</text>
+</svg>

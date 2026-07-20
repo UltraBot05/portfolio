@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <style>
+      .bg { fill: #0d0d1a; }
+      .titlebar { fill: #1a1010; }
+      .dot-r { fill: #ff5f57; }
+      .dot-y { fill: #febc2e; }
+      .dot-g { fill: #28c840; }
+      .title-text { fill: #8899aa; font-family: monospace; font-size: 11px; }
+      .line { font-family: 'Courier New', monospace; font-size: 11.5px; }
+      .orange { fill: #ef5d08; }
+      .orangelit { fill: #ff8c42; }
+      .white { fill: #e8eaf0; }
+      .dim { fill: #556677; }
+      .blue { fill: #60a5fa; }
+      .green { fill: #4ade80; }
+      .gray { fill: #94a3b8; }
+      .violet { fill: #c084fc; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="600" height="340"/>
+  <rect class="titlebar" width="600" height="32"/>
+  <circle class="dot-r" cx="16" cy="16" r="6"/>
+  <circle class="dot-y" cx="34" cy="16" r="6"/>
+  <circle class="dot-g" cx="52" cy="16" r="6"/>
+  <text class="title-text" x="300" y="21" text-anchor="middle">vegavath-site — app/page.tsx</text>
+
+  <!-- Orange accent bar -->
+  <rect fill="#ef5d08" x="0" y="32" width="600" height="3"/>
+
+  <!-- Next.js / React Three Fiber code snippet -->
+  <text class="line dim" x="20" y="62">'use client'</text>
+
+  <text class="line blue" x="20" y="82">import</text>
+  <text class="line white" x="65" y="82">{ Canvas } from</text>
+  <text class="line green" x="180" y="82">'@react-three/fiber'</text>
+
+  <text class="line blue" x="20" y="100">import</text>
+  <text class="line white" x="65" y="100">{ useGLTF, OrbitControls } from</text>
+  <text class="line green" x="300" y="100">'@react-three/drei'</text>
+
+  <text class="line blue" x="20" y="118">import</text>
+  <text class="line white" x="65" y="118">{ uploadToR2 } from</text>
+  <text class="line green" x="210" y="118">'@/lib/cloudflare-r2'</text>
+
+  <line x1="20" y1="132" x2="580" y2="132" stroke="#2d1a0a" stroke-width="1"/>
+
+  <text class="line violet" x="20" y="152">export default function</text>
+  <text class="line orangelit" x="202" y="152">VegavathHero</text>
+  <text class="line white" x="297" y="152">() {</text>
+
+  <text class="line blue" x="40" y="170">return</text>
+  <text class="line white" x="84" y="170">(</text>
+
+  <text class="line white" x="60" y="188">&lt;</text>
+  <text class="line orange" x="69" y="188">Canvas</text>
+  <text class="line gray" x="115" y="188">camera={{ position: [0, 2, 8] }}&gt;</text>
+
+  <text class="line white" x="80" y="206">&lt;</text>
+  <text class="line orange" x="89" y="206">VegavathCar</text>
+  <text class="line gray" x="168" y="206">model="/models/car.glb"</text>
+
+  <text class="line gray" x="268" y="206">scale={1.4} /></text>
+
+  <text class="line white" x="80" y="224">&lt;</text>
+  <text class="line orange" x="89" y="224">OrbitControls</text>
+  <text class="line gray" x="181" y="224">autoRotate autoRotateSpeed={0.5} /></text>
+
+  <text class="line white" x="60" y="242">&lt;/</text>
+  <text class="line orange" x="78" y="242">Canvas</text>
+  <text class="line white" x="124" y="242">&gt;</text>
+
+  <text class="line dim" x="20" y="264">// Neon Postgres · Cloudflare R2 · CI/CD → 40% faster deploys</text>
+
+  <!-- Live badge -->
+  <rect fill="#ef5d0820" x="20" y="278" width="122" height="22" rx="4"/>
+  <text class="line orangelit" x="30" y="294">● vegavath.live</text>
+
+  <rect fill="#0a0a18" x="0" y="316" width="600" height="24"/>
+  <text class="line dim" x="20" y="332">Next.js · TypeScript · R3F · Neon Postgres · Cloudflare R2</text>
+  <text class="line orange" x="490" y="332">● LIVE</text>
+</svg>

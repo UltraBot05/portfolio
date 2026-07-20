@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <style>
+      .bg { fill: #0d0d1a; }
+      .titlebar { fill: #1a1a2e; }
+      .dot-r { fill: #ff5f57; }
+      .dot-y { fill: #febc2e; }
+      .dot-g { fill: #28c840; }
+      .title-text { fill: #8899aa; font-family: monospace; font-size: 11px; }
+      .line { font-family: 'Courier New', monospace; font-size: 11px; }
+      .violet { fill: #a78bfa; }
+      .green { fill: #4ade80; }
+      .white { fill: #e8eaf0; }
+      .dim { fill: #556677; }
+      .yellow { fill: #ffd93d; }
+      .red { fill: #ff6b6b; }
+      .cyan { fill: #67e8f9; }
+      .blue { fill: #60a5fa; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="600" height="340"/>
+  <rect class="titlebar" width="600" height="32"/>
+  <circle class="dot-r" cx="16" cy="16" r="6"/>
+  <circle class="dot-y" cx="34" cy="16" r="6"/>
+  <circle class="dot-g" cx="52" cy="16" r="6"/>
+  <text class="title-text" x="300" y="21" text-anchor="middle">ai-orchestrator — POST /api/orchestrator</text>
+
+  <!-- Violet accent bar -->
+  <rect fill="#7c3aed" x="0" y="32" width="600" height="3"/>
+
+  <!-- HTTP request -->
+  <text class="line dim" x="20" y="60">// Request</text>
+  <text class="line green" x="20" y="78">POST</text>
+  <text class="line white" x="57" y="78">/api/orchestrator</text>
+  <text class="line dim" x="215" y="78">HTTP/1.1</text>
+
+  <text class="line dim" x="20" y="94">Content-Type: application/json</text>
+  <text class="line dim" x="20" y="110">Origin: https://abhigyan-site.vercel.app</text>
+
+  <text class="line white" x="20" y="128">{</text>
+  <text class="line violet" x="36" y="128">  "input"</text>
+  <text class="line white" x="103" y="128">:</text>
+  <text class="line yellow" x="115" y="128">"What are your systems projects?"</text>
+  <text class="line white" x="390" y="128">}</text>
+
+  <line x1="20" y1="144" x2="580" y2="144" stroke="#1e2d3d" stroke-width="1"/>
+
+  <!-- Rate limiter check -->
+  <text class="line dim" x="20" y="162">✓ rate limit: 12/30 req/min · input sanitized · 342 chars</text>
+
+  <!-- Gemini call -->
+  <text class="line violet" x="20" y="180">→ Gemini</text>
+  <text class="line white" x="97" y="180">gemini-2.5-flash</text>
+  <text class="line dim" x="222" y="180">· system_instruction: separate turn ✓</text>
+
+  <line x1="20" y1="196" x2="580" y2="196" stroke="#1e2d3d" stroke-width="1"/>
+
+  <!-- Response -->
+  <text class="line dim" x="20" y="214">// Response  200 OK  · 148ms</text>
+
+  <text class="line white" x="20" y="232">{</text>
+  <text class="line violet" x="36" y="232">  "response"</text>
+  <text class="line white" x="121" y="232">:</text>
+  <text class="line yellow" x="133" y="232">"Abhigyan's systems work includes..."</text>
+  <text class="line white" x="442" y="232">,</text>
+
+  <text class="line violet" x="36" y="250">  "command"</text>
+  <text class="line white" x="115" y="250">:</text>
+  <text class="line green" x="127" y="250">"projects"</text>
+  <text class="line white" x="197" y="250">,</text>
+
+  <text class="line violet" x="36" y="268">  "offline"</text>
+  <text class="line white" x="112" y="268">:</text>
+  <text class="line blue" x="124" y="268">false</text>
+
+  <text class="line white" x="20" y="286">}</text>
+
+  <rect fill="#0a0a18" x="0" y="300" width="600" height="40"/>
+  <text class="line dim" x="20" y="318">Gemini · Express · Vercel · rate-limit · DOMPurify · fallback mapping</text>
+  <text class="line violet" x="469" y="318">● SERVERLESS</text>
+  <text class="line dim" x="20" y="336">fallback: local keyword mapping when API unreachable</text>
+</svg>

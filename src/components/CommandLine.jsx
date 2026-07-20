@@ -57,12 +57,12 @@ function CommandLine({ onSubmit, onClear, commandHistory, historyIndex, setHisto
   return (
     <form onSubmit={handleSubmit} className="command-line">
       <div className="prompt">
-        <span className="prompt-user">PortfolioOS@Abhigyan</span>
+        <span className="prompt-user">b3ast@b3astos</span>
         <span className="prompt-separator">:</span>
         <span className="prompt-path">~</span>
         <span className="prompt-symbol">$</span>
       </div>
-      
+
       <input
         ref={inputRef}
         type="text"
@@ -70,9 +70,12 @@ function CommandLine({ onSubmit, onClear, commandHistory, historyIndex, setHisto
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
         className="command-input"
+        aria-label="Terminal command input"
+        placeholder="type 'help' or ask anything..."
         spellCheck="false"
         autoComplete="off"
         autoFocus
+        data-cursor="text"
       />
     </form>
   );

@@ -1,19 +1,41 @@
-<!-- <!doctype html> -->
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/terminal-icon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Abhigyan Dutta - Full-Stack Developer & Systems Engineer. Interactive terminal portfolio showcasing AI, Linux, and web development skills." />
-    <meta name="theme-color" content="#1e1e2e" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Abhigyan's Epik Konsole</title>
+    <!-- viewport-fit=cover lets the mobile shell extend under the notch/home
+         bar and pad itself with env(safe-area-inset-*) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Primary -->
+    <title>Abhigyan Dutta - Systems & Security Engineer</title>
+    <meta name="description" content="Second-year CS engineer building OS-level software in C - a multithreaded TCP server, Linux container runtime, Git internals clone. CTF competitor (B3ast). Tech Lead, Team Vegavath." />
+    <meta name="theme-color" content="#12140d" />
+    <meta name="author" content="Abhigyan Dutta" />
+
+    <!-- Open Graph (LinkedIn card rendering) -->
+    <!-- TODO: create public/og-image.png - 1200×630 dark card, spec in docs/brief.md §11 -->
+    <meta property="og:title" content="Abhigyan Dutta - Systems & Security Engineer" />
+    <meta property="og:description" content="B3ast. Systems + security. I write C that talks to the kernel." />
+    <meta property="og:image" content="https://abhigyan-site.vercel.app/og-image.png" />
+    <meta property="og:url" content="https://abhigyan-site.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="B3astOS" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abhigyan Dutta - Systems & Security Engineer" />
+    <meta name="twitter:description" content="B3ast. Systems + security. I write C that talks to the kernel." />
+    <meta name="twitter:image" content="https://abhigyan-site.vercel.app/og-image.png" />
+
+    <!-- Fonts - Roboto Flex + Roboto Mono for the MD3 type system; Fira Code
+         kept for the terminal. display=swap so text paints immediately. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&family=Roboto+Mono:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-<!--  -->

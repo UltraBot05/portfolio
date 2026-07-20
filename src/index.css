@@ -1,103 +1,75 @@
-/* Catppuccin Mocha Theme Colors */
-:root {
-  --base: #1e1e2e;
-  --mantle: #181825;
-  --crust: #11111b;
-  --text: #cdd6f4;
-  --subtext0: #a6adc8;
-  --subtext1: #bac2de;
-  --surface0: #313244;
-  --surface1: #45475a;
-  --surface2: #585b70;
-  --overlay0: #6c7086;
-  --overlay1: #7f849c;
-  --overlay2: #9399b2;
-  --blue: #89b4fa;
-  --lavender: #b4befe;
-  --sapphire: #74c7ec;
-  --sky: #89dceb;
-  --teal: #94e2d5;
-  --green: #a6e3a1;
-  --yellow: #f9e2af;
-  --peach: #fab387;
-  --maroon: #eba0ac;
-  --red: #f38ba8;
-  --mauve: #cba6f7;
-  --pink: #f5c2e7;
-  --flamingo: #f2cdcd;
-  --rosewater: #f5e0dc;
-}
+/* ============================================================
+   B3astOS - global resets. MD3 colors/typography now come from
+   the MUI theme (src/theme/md3Theme.js) + CssBaseline. This file
+   only holds resets, themed scrollbars, and the legacy terminal
+   palette vars (the terminal renders dark in both modes on purpose).
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { width: 100%; height: 100%; }
+body { overflow: hidden; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Fira Code', monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--crust);
-  color: var(--text);
-  overflow: hidden;
-}
-
-code {
-  font-family: 'Fira Code', monospace;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--mantle);
-}
-
+/* Themed scrollbars follow the MD3 outline color in both schemes */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: var(--surface2);
-  border-radius: 4px;
+  background: var(--mui-palette-surface-outlineVariant, rgba(128,128,128,0.4));
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--overlay0);
+  background: var(--mui-palette-surface-outline, rgba(128,128,128,0.6));
+  background-clip: content-box;
 }
 
-/* Selection */
-::selection {
-  background: var(--surface2);
-  color: var(--text);
+/* Terminal keeps a classic dark terminal look in both themes.
+   Palette aligned with the M3 Expressive theme: lime accent (was cyan),
+   sage highlight (was lavender/pink), warm green-tinted surfaces. */
+:root {
+  --term-bg: #0e100a;
+  --term-surface: #161911;
+  --term-text: #e0e2d2;
+  --term-dim: #9aa08c;
+  --term-accent: #c3e956;
+  --term-green: #8fd88f;
+  --term-red: #ff9a8f;
+  --term-violet: #b5d8a8;
+  --term-amber: #ffb868;
+  /* legacy aliases still referenced by Output.css/CommandLine.css/BootSequence.css */
+  --base: var(--term-bg);
+  --mantle: var(--term-surface);
+  --crust: #090b06;
+  --text: var(--term-text);
+  --subtext0: var(--term-dim);
+  --subtext1: var(--term-dim);
+  --surface0: #20241a;
+  --surface1: #2a2e22;
+  --surface2: #34382b;
+  --blue: var(--term-accent);
+  --green: var(--term-green);
+  --red: var(--term-red);
+  --yellow: var(--term-amber);
+  --peach: var(--term-amber);
+  --mauve: var(--term-violet);
+  --sapphire: var(--term-accent);
+  --font-mono: 'Roboto Mono', 'Fira Code', ui-monospace, monospace;
 }
 
-/* Animation keyframes */
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+/* On touch devices, any input below 16px makes iOS Safari zoom the page
+   when the field gains focus — force terminal inputs up to 16px there. */
+@media (pointer: coarse) {
+  .command-input,
+  .pwn-input {
+    font-size: 16px !important;
   }
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
+
+@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

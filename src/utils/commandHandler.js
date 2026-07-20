@@ -38,13 +38,13 @@ export function handleCommand(input) {
         const projectName = args.slice(1).join(' ').toLowerCase();
         
         // First try exact match
-        let project = portfolioData.projects.find(
+        let project = portfolioData.terminalProjects.find(
           p => p.name.toLowerCase() === projectName
         );
         
         // If no exact match, try partial match (fuzzy search)
         if (!project) {
-          const matches = portfolioData.projects.filter(
+          const matches = portfolioData.terminalProjects.filter(
             p => p.name.toLowerCase().includes(projectName) || 
                  projectName.includes(p.name.toLowerCase().split('-')[0])
           );
@@ -69,7 +69,7 @@ export function handleCommand(input) {
         } else {
           return {
             isCommand: true,
-            output: `Project "${projectName}" not found.\nAvailable projects:\n${portfolioData.projects.map(p => `  • ${p.name}`).join('\n')}`
+            output: `Project "${projectName}" not found.\nAvailable projects:\n${portfolioData.terminalProjects.map(p => `  • ${p.name}`).join('\n')}`
           };
         }
       } else {
@@ -103,7 +103,7 @@ export function handleCommand(input) {
 
     whoami: () => ({
       isCommand: true,
-      output: 'Abhigyan\n\nA curious developer who breaks things to understand them better.'
+      output: 'b3ast'
     }),
 
     uname: () => ({
@@ -129,8 +129,108 @@ export function handleCommand(input) {
     echo: () => ({
       isCommand: true,
       output: args.join(' ')
-    })
+    }),
+
+    // ---- Hidden / easter-egg commands (brief §9.2) ----
+    // Note: outputs are hardcoded strings; user input is never templated into
+    // them (brief §18.7). `action` triggers a UI side-effect in the Terminal.
+
+    matrix: () => ({ isCommand: true, output: 'entering the matrix...', action: 'matrix' }),
+
+    xxd: () => ({ isCommand: true, output: 'dumping suspicious_daemon...', action: 'xxd' }),
+
+    rootkit: () => {
+      const unlocked = typeof sessionStorage !== 'undefined'
+        && sessionStorage.getItem('rootkit_unlocked') === 'true';
+      if (!unlocked) {
+        return { isCommand: false, output: null }; // stays hidden until earned
+      }
+      return {
+        isCommand: true,
+        output: `
+     .~~.   .~~.
+    '. \\ ' ' / .'
+     .~ .~~~..~.
+    : .~.'~'.~. :
+   ~ (   ) (   ) ~
+  ( : '~'.~.'~' : )
+   ~ .~ (   ) ~. ~
+    (  : '~' :  )
+     '~ .~~~. ~'
+         '~'
+nice try. but this isn't my main machine.`
+      };
+    },
+
+    b3ast: () => ({
+      isCommand: true,
+      output: `
+handle: B3ast
+type:   CTF competitor (pwn/rev/web)
+tools:  pwntools · Ghidra · Burp Suite · ffuf
+flag count: [REDACTED]`
+    }),
+
+    vegavath: () => ({
+      isCommand: true,
+      output: `
+   ___________
+  /  VEGAVATH \\____
+ |___ ___________ _|
+   (O)         (O)
+
+Team Vegavath - PESU ECC student motorsport club.
+Tech Lead: Abhigyan Dutta`
+    }),
+
+    ctf: () => ({
+      isCommand: true,
+      output: `
+>> CTF PROFILE <<
+─────────────────
+handle:      B3ast
+specialties: pwn · rev · web
+platforms:   CTFtime · HackTheBox · TryHackMe
+toolchain:   pwntools · Ghidra · Burp Suite · ffuf · GDB · ROPgadget
+recent:      binary exploitation, heap grooming, ROP chains`
+    }),
+
+    ping: () => ({
+      isCommand: true,
+      output: 'PING b3astos (127.0.0.1): 56 bytes // b3ast is alive.'
+    }),
+
+    neofetch: () => ({ isCommand: true, output: portfolioData.about }),
   };
+
+  // uname -a
+  if (mainCommand === 'uname') {
+    return { isCommand: true, output: 'B3astOS 2.0.26-hyprland-CTF x86_64 GNU/Linux' };
+  }
+
+  // sudo <anything>
+  if (mainCommand === 'sudo') {
+    return {
+      isCommand: true,
+      output: 'Sorry, b3ast is not in the sudoers file. This incident will be reported.'
+    };
+  }
+
+  // rm -rf / (fake dramatic deletion)
+  if (mainCommand === 'rm' && (command.includes('-rf /') || command.includes('-fr /'))) {
+    return { isCommand: true, output: 'deleting everything...', action: 'rmrf' };
+  }
+
+  // cat /etc/passwd (humorous fake passwd)
+  if (command === 'cat /etc/passwd') {
+    return {
+      isCommand: true,
+      output: `root:x:0:0:b3ast the omniscient:/root:/bin/zsh
+daemon:x:1:1:suspicious_daemon:/usr/sbin:/usr/sbin/nologin
+b3ast:x:1000:1000:Abhigyan Dutta:/home/b3ast:/bin/zsh
+vegavath:x:1337:1337:motorsport:/home/vegavath:/bin/false`
+    };
+  }
 
   // Check if command exists
   if (commands[mainCommand]) {
@@ -155,12 +255,12 @@ Type 'projects view <name>' to learn more.
 
 `;
 
-  portfolioData.projects.forEach(project => {
+  portfolioData.terminalProjects.forEach(project => {
     output += `\n▓ ${project.name}\n`;
     output += `  ${project.category}\n`;
   });
 
-  output += `\n\nExample: projects view ${portfolioData.projects[0].name}`;
+  output += `\n\nExample: projects view ${portfolioData.terminalProjects[0].name}`;
 
   return output;
 }

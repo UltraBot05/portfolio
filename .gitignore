@@ -29,3 +29,10 @@ lerna-debug.log*
 
 # Vercel
 .vercel
+
+# Private CTF solve guide
+help.md
+
+# AI Logs
+
+docs/logs

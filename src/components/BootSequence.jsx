@@ -5,15 +5,16 @@ function BootSequence() {
   const [lines, setLines] = useState([]);
   const [progress, setProgress] = useState(0);
   
+  // Total boot ≤1s (brief §8.2) - it runs once per session, speed > drama
   const bootMessages = [
-    { text: 'Initializing kernel...', delay: 100 },
-    { text: 'Loading user modules...', delay: 300 },
-    { text: 'Mounting /dev/skills...', delay: 600 },
-    { text: 'Starting network services...', delay: 900 },
-    { text: 'Initializing AI assistant...', delay: 1150 },
-    { text: 'AI assistant [ONLINE]', delay: 1400, status: 'success' },
-    { text: '', delay: 1650 },
-    { text: 'System ready.', delay: 1850, status: 'success' },
+    { text: 'Initializing kernel...', delay: 50 },
+    { text: 'Loading user modules...', delay: 160 },
+    { text: 'Mounting /dev/skills...', delay: 300 },
+    { text: 'Starting network services...', delay: 440 },
+    { text: 'Initializing AI assistant...', delay: 570 },
+    { text: 'AI assistant [ONLINE]', delay: 700, status: 'success' },
+    { text: '', delay: 800 },
+    { text: 'System ready.', delay: 880, status: 'success' },
   ];
 
   useEffect(() => {
@@ -23,16 +24,16 @@ function BootSequence() {
       }, msg.delay);
     });
 
-    // Smooth progress bar - completes in 2.5 seconds
+    // Smooth progress bar - completes in ~1 second
     const progressInterval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 4; // Increments smoothly (4% every 100ms = 2500ms to reach 100%)
+        return prev + 10; // 10% every 95ms ≈ 950ms to reach 100%
       });
-    }, 100);
+    }, 95);
 
     return () => clearInterval(progressInterval);
   }, []);

@@ -28,7 +28,7 @@ export default function StatusBar({ onLauncherClick }) {
   }, []);
 
   const resolved = mode === 'system' ? systemMode : mode;
-  const ram = navigator.deviceMemory ? `${navigator.deviceMemory}G` : '16G';
+  const ram = '16G'; // cosmetic — real value from navigator.deviceMemory is too honest
 
   return (
     <>

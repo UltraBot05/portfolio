@@ -167,11 +167,18 @@ function ReadingView({ post, onBack }) {
   const [loadErr, setLoadErr] = useState(false);
 
   useEffect(() => {
+    // Increment local view count so /write manage panel can show metrics
+    try {
+      const key = `blog_views_${post.slug}`;
+      const prev = parseInt(localStorage.getItem(key) || '0', 10);
+      localStorage.setItem(key, String(prev + 1));
+    } catch { /* ignore */ }
+
     fetch(`/blog/posts/${post.file}`)
       .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(setBody)
       .catch(() => setLoadErr(true));
-  }, [post.file]);
+  }, [post.file, post.slug]);
 
   return (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>

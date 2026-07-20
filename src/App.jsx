@@ -3,11 +3,13 @@ import Desktop from './components/os/Desktop';
 import MobileOS from './components/mobile/MobileOS';
 import WritePage from './components/write/WritePage';
 
-// The rootkit egg must be re-earned every visit: sessionStorage survives
-// reloads within a tab, so clear the flag at page load (module scope runs
-// exactly once per load, before any terminal command can check it).
+// The rootkit egg and konami unlock must be re-earned every visit:
+// sessionStorage survives reloads within a tab, so clear the flags at page
+// load (module scope runs exactly once per load, before any terminal command
+// can check them).
 if (typeof sessionStorage !== 'undefined') {
   sessionStorage.removeItem('rootkit_unlocked');
+  sessionStorage.removeItem('konami_unlocked');
 }
 
 export default function App() {

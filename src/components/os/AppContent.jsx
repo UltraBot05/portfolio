@@ -14,6 +14,7 @@ const DocReader = lazy(() => import('../apps/DocReader'));
 const B3astEgg = lazy(() => import('../apps/EasterEggs/FakePwn'));
 const HexDump = lazy(() => import('../apps/EasterEggs/HexDump'));
 const Blog = lazy(() => import('../apps/Blog'));
+const Settings = lazy(() => import('../apps/Settings'));
 
 const APPS = {
   fileExplorer: FileExplorer,
@@ -27,6 +28,7 @@ const APPS = {
   b3astEgg: B3astEgg,
   hexDump: HexDump,
   blogs: Blog,
+  settings: Settings,
 };
 
 export default function AppContent({ appId, props = {} }) {

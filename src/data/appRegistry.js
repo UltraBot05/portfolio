@@ -16,6 +16,7 @@ export const ICONS = {
   portfolio:    'material-symbols:web-rounded',
   aiAssistant:  'material-symbols:smart-toy-rounded',
   blogs:        'material-symbols:edit-note-rounded',
+  settings:     'material-symbols:settings-rounded',
   b3astEgg:     'material-symbols:sports-esports-rounded',
 };
 
@@ -30,6 +31,7 @@ export const DESKTOP_ICONS = [
   { appId: 'portfolio',    label: 'Portfolio', tone: 'tertiary',  description: 'View as portfolio — recruiter mode', defaultSize: { width: 1100, height: 740 } },
   { appId: 'aiAssistant',  label: 'AI Chat',   tone: 'primary',   description: 'Ask B3ast AI anything',            defaultSize: { width: 620, height: 640 } },
   { appId: 'blogs',        label: 'Blog',      tone: 'secondary', description: 'Personal engineering blog',         defaultSize: { width: 700, height: 520 } },
+  { appId: 'settings',     label: 'Settings',  tone: 'tertiary',  description: 'System preferences',                defaultSize: { width: 600, height: 600 } },
   { appId: 'b3astEgg',     label: '???',       tone: 'secondary', badge: true, description: 'Unauthorized access',  defaultSize: { width: 640, height: 520 } },
 ];
 

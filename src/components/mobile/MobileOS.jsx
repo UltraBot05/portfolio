@@ -12,9 +12,11 @@ import HomeRounded from '@mui/icons-material/HomeRounded';
 import AppsRounded from '@mui/icons-material/AppsRounded';
 import LightModeRounded from '@mui/icons-material/LightModeRounded';
 import DarkModeRounded from '@mui/icons-material/DarkModeRounded';
+import WifiRounded from '@mui/icons-material/WifiRounded';
 import { Icon } from '@iconify/react';
 import AppContent from '../os/AppContent';
 import WallpaperPicker from '../os/WallpaperPicker';
+import WifiMenu from '../os/WifiMenu';
 import { DESKTOP_ICONS, ICONS, getApp, toneColorsDim } from '../../data/appRegistry';
 import { useWallpaperStore } from '../../store/wallpaperStore';
 import { WALLPAPERS } from '../../data/wallpapers';
@@ -72,6 +74,7 @@ export default function MobileOS({ device = 'android' }) {
   const [now, setNow] = useState(new Date());
   const { mode, systemMode, setMode } = useColorScheme();
   const { activeId, openPicker, setWallpaper } = useWallpaperStore();
+  const [wifiAnchor, setWifiAnchor] = useState(null);
   const autoOpened = useRef(false);
 
   useEffect(() => { const t = setInterval(() => setNow(new Date()), 30000); return () => clearInterval(t); }, []);
@@ -150,10 +153,20 @@ export default function MobileOS({ device = 'android' }) {
       {/* status bar */}
       <Box sx={{ position: 'relative', zIndex: 2, pt: 'env(safe-area-inset-top)', px: 2, height: 'calc(36px + env(safe-area-inset-top))', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Typography variant="caption" sx={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{pad(now.getHours())}:{pad(now.getMinutes())}</Typography>
-        <IconButton size="small" onClick={() => setMode(resolved === 'dark' ? 'light' : 'dark')} aria-label="Toggle theme">
-          {resolved === 'dark' ? <LightModeRounded fontSize="small" /> : <DarkModeRounded fontSize="small" />}
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <IconButton size="small" onClick={(e) => setWifiAnchor(e.currentTarget)} aria-label="Wi-Fi">
+            <WifiRounded fontSize="small" sx={{ fontSize: 18 }} />
+          </IconButton>
+          <IconButton size="small" onClick={() => setMode(resolved === 'dark' ? 'light' : 'dark')} aria-label="Toggle theme">
+            {resolved === 'dark' ? <LightModeRounded fontSize="small" sx={{ fontSize: 18 }} /> : <DarkModeRounded fontSize="small" sx={{ fontSize: 18 }} />}
+          </IconButton>
+        </Box>
       </Box>
+      <WifiMenu
+        anchorEl={wifiAnchor}
+        open={Boolean(wifiAnchor)}
+        onClose={() => setWifiAnchor(null)}
+      />
 
       {/* home (scrollable if it ever outgrows the screen) */}
       <Box 

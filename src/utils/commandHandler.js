@@ -226,7 +226,22 @@ FLAG{k0nami_1s_s3cr3t}
     return { isCommand: true, output: 'B3astOS 2.0.26-hyprland-CTF x86_64 GNU/Linux' };
   }
 
-  // sudo <anything>
+  // cat /etc/shadow — CTF flag 3: sudo make me a sandwich
+  // IMPORTANT: this must come BEFORE the generic sudo block below.
+  if (command === 'cat /etc/shadow' || command === 'sudo cat /etc/shadow') {
+    sessionStorage.setItem('ctf_shadow_found', 'true');
+    return {
+      isCommand: true,
+      output: `Permission denied... or are we?
+
+root:$6$salt$hackers_gonna_hack:0:0:99999:7:::
+b3ast:$6$pepper$XOR_all_the_things:17000:0:99999:7:::
+# FLAG{sudo_make_me_a_sandwich}
+# (yes, we checked. no, you can't crack it.)`
+    };
+  }
+
+  // sudo <anything> (generic — must come AFTER specific sudo checks)
   if (mainCommand === 'sudo') {
     return {
       isCommand: true,
@@ -250,19 +265,7 @@ vegavath:x:1337:1337:motorsport:/home/vegavath:/bin/false`
     };
   }
 
-  // cat /etc/shadow — CTF flag 3: sudo make me a sandwich
-  if (command === 'cat /etc/shadow' || command === 'sudo cat /etc/shadow') {
-    sessionStorage.setItem('ctf_shadow_found', 'true');
-    return {
-      isCommand: true,
-      output: `Permission denied... or are we?
 
-root:$6$salt$hackers_gonna_hack:0:0:99999:7:::
-b3ast:$6$pepper$XOR_all_the_things:17000:0:99999:7:::
-# FLAG{sudo_make_me_a_sandwich}
-# (yes, we checked. no, you can't crack it.)`
-    };
-  }
 
   // base64 -d — CTF flag 5: decode the hidden payload
   if (command === 'base64 -d' || command === 'echo "flag" | base64 -d' || command.startsWith('base64')) {

@@ -199,6 +199,7 @@ Concepts   DSA, distributed systems, concurrency, caching
 "I break things to understand them, then fix them for good."
 
 Type 'projects' to see what I build, or just ask a question.
+# Zm1nLWItYjM0c3QtYjZ0
 `;
 
 portfolioData.skills = `

@@ -78,7 +78,7 @@ export default function WallpaperPicker({ isMobile = false }) {
       }}
     >
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', p: 2 }}>
-        <Typography variant="h6" fontWeight={700}>Wallpaper</Typography>
+        <Typography variant="h6" component="span" fontWeight={700}>Wallpaper</Typography>
         <IconButton size="small" onClick={closePicker}><CloseRounded /></IconButton>
       </DialogTitle>
 

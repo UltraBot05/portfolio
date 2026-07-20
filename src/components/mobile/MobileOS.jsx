@@ -77,6 +77,8 @@ export default function MobileOS({ device = 'android' }) {
   const [wifiAnchor, setWifiAnchor] = useState(null);
   const autoOpened = useRef(false);
 
+  const isApple = typeof navigator !== 'undefined' && (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+
   useEffect(() => { const t = setInterval(() => setNow(new Date()), 30000); return () => clearInterval(t); }, []);
 
   // Auto-open Portfolio on first mobile load so recruiters land straight in it.
@@ -250,17 +252,37 @@ export default function MobileOS({ device = 'android' }) {
             </Box>
 
             {/* Unified iOS-style floating navbar */}
-            <Box sx={{
-              flexShrink: 0, height: 'calc(48px + env(safe-area-inset-bottom))',
-              pb: 'env(safe-area-inset-bottom)',
-              display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6,
-              bgcolor: 'rgba(var(--mui-palette-surface-mainChannel) / 0.85)',
-              backdropFilter: 'blur(12px)',
-              borderTop: 1, borderColor: 'divider',
-            }}>
-              <IconButton onClick={goHome} aria-label="Back" sx={{ minWidth: 44, minHeight: 44 }}><ArrowBackRounded /></IconButton>
-              <IconButton onClick={goHome} aria-label="Home" sx={{ minWidth: 44, minHeight: 44 }}><HomeRounded /></IconButton>
-            </Box>
+            {isApple ? (
+              <Box sx={{
+                flexShrink: 0, height: 'calc(24px + env(safe-area-inset-bottom))',
+                pb: 'env(safe-area-inset-bottom)',
+                display: 'flex', justifyContent: 'center', alignItems: 'center',
+                bgcolor: 'rgba(var(--mui-palette-surface-mainChannel) / 0.85)',
+                backdropFilter: 'blur(12px)',
+                borderTop: 1, borderColor: 'divider',
+              }}>
+                <Box
+                  onClick={goHome}
+                  sx={{
+                    width: 134, height: 5, borderRadius: 3,
+                    bgcolor: 'text.primary', opacity: 0.8,
+                    cursor: 'pointer'
+                  }}
+                />
+              </Box>
+            ) : (
+              <Box sx={{
+                flexShrink: 0, height: 'calc(48px + env(safe-area-inset-bottom))',
+                pb: 'env(safe-area-inset-bottom)',
+                display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6,
+                bgcolor: 'rgba(var(--mui-palette-surface-mainChannel) / 0.85)',
+                backdropFilter: 'blur(12px)',
+                borderTop: 1, borderColor: 'divider',
+              }}>
+                <IconButton onClick={goHome} aria-label="Back" sx={{ minWidth: 44, minHeight: 44 }}><ArrowBackRounded /></IconButton>
+                <IconButton onClick={goHome} aria-label="Home" sx={{ minWidth: 44, minHeight: 44 }}><HomeRounded /></IconButton>
+              </Box>
+            )}
           </Box>
         )}
       </AnimatePresence>

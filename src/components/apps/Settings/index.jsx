@@ -3,12 +3,11 @@ import { useColorScheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
 import Divider from '@mui/material/Divider';
-import ButtonBase from '@mui/material/ButtonBase';
 import PaletteRounded from '@mui/icons-material/PaletteRounded';
 import DarkModeRounded from '@mui/icons-material/DarkModeRounded';
 import LightModeRounded from '@mui/icons-material/LightModeRounded';
@@ -41,27 +40,33 @@ function SectionTitle({ title }) {
 
 // Clickable setting item
 function SettingItem({ icon, title, subtitle, onClick, control }) {
+  const isClickable = !!onClick;
+  const Container = isClickable ? ListItemButton : ListItem;
+
   return (
-    <ListItem
-      component={onClick ? ButtonBase : 'li'}
+    <Container
       onClick={onClick}
+      component={isClickable ? 'div' : 'li'}
       sx={{
         px: 3, py: 2,
         width: '100%', textAlign: 'left',
         justifyContent: 'flex-start',
+        cursor: isClickable ? 'pointer' : 'default',
+        '&:hover': isClickable ? {
+          bgcolor: 'action.hover',
+        } : {},
       }}
     >
       <ListItemIcon sx={{ minWidth: 48, color: 'text.secondary' }}>
         {icon}
       </ListItemIcon>
       <ListItemText
-        primary={title}
-        secondary={subtitle}
-        primaryTypographyProps={{ sx: { fontWeight: 500, fontSize: '1rem', color: 'text.primary' } }}
-        secondaryTypographyProps={{ sx: { mt: 0.25, fontSize: '0.875rem' } }}
+        primary={<Typography sx={{ fontWeight: 500, fontSize: '1rem', color: 'text.primary' }}>{title}</Typography>}
+        secondary={subtitle ? <Typography sx={{ mt: 0.25, fontSize: '0.875rem', color: 'text.secondary' }}>{subtitle}</Typography> : null}
+        disableTypography
       />
       {control && <Box sx={{ ml: 2 }}>{control}</Box>}
-    </ListItem>
+    </Container>
   );
 }
 

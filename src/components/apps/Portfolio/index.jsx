@@ -209,7 +209,7 @@ export default function Portfolio() {
           {...REVEAL}
           sx={{ pt: { xs: 6, sm: 8 }, pb: 6 }}
         >
-          <Stack direction={{ xs: 'column-reverse', sm: 'row' }} spacing={4} alignItems={{ xs: 'flex-start', sm: 'center' }} justifyContent="space-between">
+          <Stack direction={{ xs: 'column-reverse', sm: 'row' }} spacing={4} sx={{ alignItems: { xs: 'flex-start', sm: 'center' }, justifyContent: 'space-between' }}>
             <Box sx={{ flex: 1 }}>
               {/* Subtle "terminal handle" above the name */}
               <Typography

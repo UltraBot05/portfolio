@@ -14,7 +14,8 @@
   "rewrites": [
     { "source": "/api/orchestrator", "destination": "/api/orchestrator-handler.js" },
     { "source": "/api/health", "destination": "/api/orchestrator-handler.js" },
-    { "source": "/api/:path*", "destination": "/api/:path*" }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {

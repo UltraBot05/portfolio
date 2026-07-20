@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useDeviceDetection } from './hooks/useDeviceDetection';
+import { useWindowStore } from './store/windowStore';
 import Desktop from './components/os/Desktop';
 import MobileOS from './components/mobile/MobileOS';
 import WritePage from './components/write/WritePage';
@@ -20,6 +22,16 @@ export default function App() {
   }
 
   const device = useDeviceDetection();
+  
+  // Deep link to automatically open the blog app if visited at /blog
+  useEffect(() => {
+    if (window.location.pathname.startsWith('/blog')) {
+      // Small timeout ensures the store is ready and OS is mounted
+      setTimeout(() => {
+        useWindowStore.getState().open('blogs');
+      }, 500);
+    }
+  }, []);
 
   if (device === 'ios' || device === 'android' || device === 'mobile') {
     return <MobileOS device={device} />;

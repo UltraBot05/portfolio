@@ -21,6 +21,7 @@ import FlagRounded from '@mui/icons-material/FlagRounded';
 import WifiRounded from '@mui/icons-material/WifiRounded';
 
 import { useWallpaperStore } from '../../../store/wallpaperStore';
+import { useThemeStore } from '../../../store/themeStore';
 import WifiMenu from '../../os/WifiMenu';
 
 // Generic settings section title
@@ -73,7 +74,8 @@ function SettingItem({ icon, title, subtitle, onClick, control }) {
 
 export default function SettingsApp() {
   const { mode, systemMode, setMode } = useColorScheme();
-  const openPicker = useWallpaperStore(state => state.openPicker);
+  const openWallpaperPicker = useWallpaperStore(state => state.openPicker);
+  const openThemePicker = useThemeStore(state => state.openPicker);
   const [wifiAnchor, setWifiAnchor] = useState(null);
 
   const resolved = mode === 'system' ? systemMode : mode;
@@ -139,6 +141,7 @@ export default function SettingsApp() {
           icon={<PaletteRounded />}
           title="Colors"
           subtitle="Material You dynamic color (Catppuccin base)"
+          onClick={openThemePicker}
         />
 
         <Divider sx={{ my: 1, mx: 3 }} />

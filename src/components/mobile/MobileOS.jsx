@@ -16,6 +16,7 @@ import WifiRounded from '@mui/icons-material/WifiRounded';
 import { Icon } from '@iconify/react';
 import AppContent from '../os/AppContent';
 import WallpaperPicker from '../os/WallpaperPicker';
+import ThemePicker from '../os/ThemePicker';
 import WifiMenu from '../os/WifiMenu';
 import { DESKTOP_ICONS, ICONS, getApp, toneColorsDim } from '../../data/appRegistry';
 import { useWallpaperStore } from '../../store/wallpaperStore';
@@ -287,6 +288,7 @@ export default function MobileOS({ device = 'android' }) {
         )}
       </AnimatePresence>
       <WallpaperPicker isMobile />
+      <ThemePicker />
     </Box>
   );
 }

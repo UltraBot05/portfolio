@@ -135,7 +135,7 @@ export default function SettingsApp() {
           icon={<WallpaperRounded />}
           title="Wallpaper"
           subtitle="Tap to change desktop background"
-          onClick={openPicker}
+          onClick={openWallpaperPicker}
         />
         <SettingItem
           icon={<PaletteRounded />}
